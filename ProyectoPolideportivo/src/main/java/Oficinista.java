@@ -1,4 +1,4 @@
-import util.FileManager;
+import Util.FileManager;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -65,6 +65,17 @@ public class Oficinista extends Trabajadores{
 
         FileManager.saveFileMap("mapa", mapaActs);
 
+    }
+
+    public static void verReservas(Oficinista oficinista, Actividades actividad,int numUsuario, int numSemana, int numHora, int numDia){
+
+        List<Reserva> reservas = (List<Reserva>) FileManager.loadFileList("reservas");
+
+        int cont = 0;
+        for (Reserva reserva : reservas){
+            System.out.println(colorize("(" + cont + ")" + "semana:" +reserva.getNumSemana() + ", dia:" + reserva.getNumDia() + ", hora:" + reserva.getNumHora() + ", actividad:" + reserva.getActividad().toString(),BLUE_TEXT()));
+            cont++;
+        }
     }
 
 }
