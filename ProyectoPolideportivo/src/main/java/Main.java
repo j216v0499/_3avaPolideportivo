@@ -1,11 +1,8 @@
 import Util.FileManager;
-import jdk.jshell.execution.Util;
-
 import java.util.*;
 import java.util.List;
 
 import static com.diogonunes.jcolor.Ansi.colorize;
-import static com.diogonunes.jcolor.Attribute.*;
 
 public class Main {
     public static void main(String[] args) {
@@ -30,7 +27,8 @@ public class Main {
         if (Menus.menuInicial().equals("1")){
             AppMovil.appMovil(sc,oficinista, actividad);
         }else{
-            AppOficina.appOficina(sc);
+            AppOficina.appOficina(sc,oficinista, actividad);
         }
     }
 }
+

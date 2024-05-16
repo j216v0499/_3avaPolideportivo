@@ -18,7 +18,7 @@ public class AppMovil {
         if (res1.equals("n")) {
             Menus.menuAlta(sc, oficinista);
         }
-        while (!Menus.inicioSesion(sc)){
+        while (!Menus.inicioSesionUsuarios(sc)){
             System.out.println(colorize("inicio de sesion incorrecto", BLUE_TEXT()));
         };
         System.out.println(colorize("\nSesión iniciada", BLUE_TEXT()));

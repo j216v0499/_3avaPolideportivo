@@ -6,6 +6,8 @@ public class Usuario extends Writable {
     private String nombre;
     private String pass;
 
+
+
     public Usuario(String nombre, String pass,String DNI) {
         this.DNI = DNI;
         this.nombre = nombre;

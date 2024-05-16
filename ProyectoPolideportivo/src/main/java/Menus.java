@@ -43,7 +43,41 @@ public class Menus {
     }
 
 
-    public static boolean inicioSesion(Scanner sc){
+    public static boolean inicioSesionUsuarios(Scanner sc){
+
+        System.out.println(colorize("\nLista de usuarios registrados (elige que perfil utilizar):", BLUE_TEXT()));
+
+        ArrayList<Usuario> usus1 = (ArrayList<Usuario>) FileManager.loadFileList(FileManager.LISTA_USUARIOS);
+
+        int contador = 0;
+        for (Usuario eleccion : usus1){
+            System.out.println(colorize("(" + contador + ")" + eleccion.getNombre().toString(), BLUE_TEXT()));
+            contador++;
+        }
+        System.out.println();
+        System.out.print(colorize("--> ",BRIGHT_BLUE_TEXT()));
+        int numUser = sc.nextInt();
+
+
+        System.out.println(colorize("\nIdentificación:", BLUE_TEXT()));
+        System.out.print(colorize("-> ",BRIGHT_BLUE_TEXT()));
+        String DNI= sc.next();
+        System.out.println(colorize("\ncontrasenya:", BLUE_TEXT()));
+        System.out.print(colorize("-> ",BRIGHT_BLUE_TEXT()));
+        String pass= sc.next();
+
+        FileManager.saveFile(FileManager.NUMERO_USUARIO,numUser);
+
+        //comprobación con el filemanager de DNI y pass (if igual true, else false)
+
+        ArrayList<Usuario> usus2 = (ArrayList<Usuario>) FileManager.loadFileList(FileManager.LISTA_USUARIOS);
+
+        if (usus2.get(numUser).getDNI().toString().equals(DNI) && usus2.get(numUser).getPass().toString().equals(pass))
+            return true;
+        return false;
+    }
+
+    public static boolean inicioSesionOficina(Scanner sc){
 
         System.out.println(colorize("\nLista de usuarios registrados (elige que perfil utilizar):", BLUE_TEXT()));
 
