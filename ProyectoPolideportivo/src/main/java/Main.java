@@ -1,4 +1,6 @@
-import Util.FileManager;
+import util.FileManager;
+import controller.*;
+
 import java.util.*;
 import java.util.List;
 
@@ -10,8 +12,9 @@ public class Main {
         // pepe 26766978H pepe
 
         //actividades
-        int numAct = 0;Actividades actividad = Actividades.FUTBOL;
-        //Oficinista
+        int numAct = 0;
+        Actividades actividad = Actividades.FUTBOL;
+        //controller.Oficinista
         Oficinista oficinista = new Oficinista(); //cramos una oficinista
 
         Map<Actividades, List<Semana>> semanaActs = new HashMap<>();  //creamos un mapa de actividades

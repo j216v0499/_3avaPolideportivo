@@ -1,4 +1,4 @@
-package Util;
+package util;
 
 import java.io.*;
 import java.util.List;
@@ -7,7 +7,6 @@ import java.util.Map;
 public class FileManager<T> {
 
     public static final String LISTA_SANCIONES = "listasan";
-
     public static final String LISTA_USUARIOS = "listausu";
     public static final String NUMERO_USUARIO = "numUser";
     public static final String CAL_FUTBOL = "FUTBOL";
