@@ -28,17 +28,18 @@ public class AppOficina {
         do {
 
             System.out.println(colorize("\nAdmin detectado que deseas\n", BLUE_TEXT()));
-            System.out.println(colorize("Sancionar(1)    quitar reserva(2)   mostrar calendario(3)   salir(4)    ver reservas(5)", BLUE_TEXT()));
+           // System.out.println(colorize("Sancionar(1)    quitar reserva(2)   mostrar calendario(3)   salir(4)    ver reservas(5)  VerificarSancionar(6)", BLUE_TEXT()));
+            System.out.println(colorize("Sancionar(1)  DardeAltaUsuarios(2) salir(3)  VerificarSancionar(4)", BLUE_TEXT()));
+
             System.out.print(colorize("--> ",BRIGHT_BLUE_TEXT()));
             res2 = sc.next();
 
+
             if(res2.equals("1")){
                 System.out.println("que usuario quieres sancionar ? DNI:");
-                Scanner scanner = new Scanner(System.in);
-                String DNI = scanner.nextLine();
+                String DNI = sc.nextLine();
                 System.out.println("Sancion :");
-                String Sancion = scanner.nextLine();
-
+                String Sancion = sc.nextLine();
                 sancionarUsuario(DNI,Sancion);
             }
 
@@ -49,8 +50,8 @@ public class AppOficina {
                 buscarSancionarUsuario(DNI);
             }
 
-            if (res2.equals("3")){
-                MostrarCalendario.verCalendario(sc);
+            if (res2.equals("2")){
+                Menus.menuAlta(sc, oficinista);
             }
 
 
@@ -148,13 +149,13 @@ public class AppOficina {
         }
     }
 
-    public static void rellenarActividades(List<Semana> SEMANAS, Map<Actividades,List<Semana>> semanaActs){
-
-        for (Actividades actividades : Actividades.values()){
-            semanaActs.put(actividades,SEMANAS);
-        }
-        FileManager.saveFileMap("mapa", semanaActs);
-
-    }
+//    public static void rellenarActividades(List<Semana> SEMANAS, Map<Actividades,List<Semana>> semanaActs){
+//
+//        for (Actividades actividades : Actividades.values()){
+//            semanaActs.put(actividades,SEMANAS);
+//        }
+//        FileManager.saveFileMap("mapa", semanaActs);
+//
+//    }
 
 }

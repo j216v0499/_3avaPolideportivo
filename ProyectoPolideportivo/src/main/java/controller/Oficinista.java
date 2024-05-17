@@ -57,7 +57,7 @@ public class Oficinista extends Trabajadores{
 
     }
 
-    public void asignarTrabajador(Actividades actividad, int numSemana,int numDia, int numHora, Trabajadores trabajador){
+    private void asignarTrabajador(Actividades actividad, int numSemana,int numDia, int numHora, Trabajadores trabajador){
 
 
         Map<Actividades, List<Semana>> mapaActs = FileManager.loadFileMap("mapa");
@@ -68,7 +68,7 @@ public class Oficinista extends Trabajadores{
 
     }
 
-    public static void verReservas(Oficinista oficinista, Actividades actividad,int numUsuario, int numSemana, int numHora, int numDia){
+    private static void verReservas(Oficinista oficinista, Actividades actividad,int numUsuario, int numSemana, int numHora, int numDia){
 
         List<Reserva> reservas = (List<Reserva>) FileManager.loadFileList("reservas");
 
