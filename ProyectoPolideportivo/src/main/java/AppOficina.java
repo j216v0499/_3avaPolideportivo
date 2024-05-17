@@ -26,18 +26,30 @@ public class AppOficina {
         String res2="";
         do {
 
-            System.out.println(colorize("\nBienvenido al polideportivo ¿que desea hacer?\n", BLUE_TEXT()));
-            System.out.println(colorize("reservar(1)    quitar reserva(2)   mostrar calendario(3)   salir(4)    ver reservas(5)", BLUE_TEXT()));
+            System.out.println(colorize("\nAdmin detectado que deseas\n", BLUE_TEXT()));
+            System.out.println(colorize("Sancionar(1)    quitar reserva(2)   mostrar calendario(3)   salir(4)    ver reservas(5)", BLUE_TEXT()));
             System.out.print(colorize("--> ",BRIGHT_BLUE_TEXT()));
             res2 = sc.next();
+
+            if(res2.equals("1")){
+                System.out.println("que usuario quieres sancionar ? DNI:");
+                Scanner scanner = new Scanner(System.in);
+                String DNI = scanner.nextLine();
+                System.out.println("Sancion :");
+                String Sancion = scanner.nextLine();
+
+                sancionarUsuario(DNI,Sancion);
+            }
 
             if (res2.equals("3")){
                 MostrarCalendario.verCalendario(sc);
             }
 
-            if (!res2.equals("3") && !res2.equals("4")) {
+
+
+            if (!res2.equals("3") && !res2.equals("4") && !res2.equals("1")) {
                 //Actividad
-                System.out.println(colorize("\n¿Que actividad eliges para reservar?", BLUE_TEXT()));
+                System.out.println(colorize("\nelige el dia deseado para  quitar / ver reserva? ", BLUE_TEXT()));
                 int cont1 = 0;
                 for (Actividades act : Actividades.values()) {
                     System.out.println(colorize("(" + cont1 + ")" + act.toString(), BLUE_TEXT()));
@@ -53,7 +65,7 @@ public class AppOficina {
                 int numSemana = sc.nextInt();
 
                 //Dia
-                System.out.println(colorize("\n¿Que dia quieres reservar? (0-4)", BLUE_TEXT()));
+                System.out.println(colorize("\n¿Que dia quieres quitar / ver reserva? (0-4)", BLUE_TEXT()));
                 System.out.print(colorize("--> ", BRIGHT_BLUE_TEXT()));
                 int numDia = sc.nextInt();
 
@@ -75,9 +87,7 @@ public class AppOficina {
                 System.out.print(colorize("--> ", BRIGHT_BLUE_TEXT()));
                 int numHora = sc.nextInt();
 
-                if (res2.equals("1")) {
-                    reservarYmostrar(oficinista, actividad, "Reservado", FileManager.loadFile(FileManager.NUMERO_USUARIO), numSemana, numHora, numDia,(List<Reserva>) FileManager.loadFileList("reservas"));
-                } else if (res2.equals("2")) {
+                if (res2.equals("2")) {
                     quitarYmostrar(oficinista, actividad, FileManager.loadFile(FileManager.NUMERO_USUARIO), numSemana, numHora, numDia);
                 }
 
@@ -89,9 +99,9 @@ public class AppOficina {
 
     }
 
-    public static void reservarYmostrar(Oficinista oficinista,Actividades actividad,String nomReserva,int numUser,int numSemana,int numHora, int numDia, List<Reserva> reservas){
-        oficinista.realizarReserva(actividad,nomReserva,numUser,numSemana,numHora,numDia);
-        MostrarCalendario.mostrarCalendario(numSemana,actividad);
+
+    public static void sancionarUsuario(String dni,String Sancion){
+
     }
 
     public static void quitarYmostrar(Oficinista oficinista,Actividades actividad, int numUser, int numSemana, int numHora, int numDia){
@@ -119,4 +129,4 @@ public class AppOficina {
 
     }
 
-}//s
+}
