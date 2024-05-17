@@ -25,7 +25,7 @@ public class Reserva {
         return actividad;
     }
 
-    public void setActividad(Actividades actividad) {
+    private void setActividad(Actividades actividad) {
         this.actividad = actividad;
     }
 
@@ -33,7 +33,7 @@ public class Reserva {
         return numSemana;
     }
 
-    public void setNumSemana(int numSemana) {
+    private void setNumSemana(int numSemana) {
         this.numSemana = numSemana;
     }
 
@@ -41,7 +41,7 @@ public class Reserva {
         return numDia;
     }
 
-    public void setNumDia(int numDia) {
+    private void setNumDia(int numDia) {
         this.numDia = numDia;
     }
 
@@ -49,7 +49,7 @@ public class Reserva {
         return numHora;
     }
 
-    public void setNumHora(int numHora) {
+    private void setNumHora(int numHora) {
         this.numHora = numHora;
     }
 
@@ -57,7 +57,7 @@ public class Reserva {
         return numCliente;
     }
 
-    public void setNumCliente(int numCliente) {
+    private void setNumCliente(int numCliente) {
         this.numCliente = numCliente;
     }
 }
