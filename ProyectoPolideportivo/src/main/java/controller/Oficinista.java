@@ -25,7 +25,6 @@ public class Oficinista extends Trabajadores{
 
     public void realizarReserva(Actividades actividad, String nomReserva, int numUser, int numSemana, int numHora, int numDia){
 
-
         Map<Actividades, List<Semana>> mapaActs = FileManager.loadFileMap("mapa");
 
         if (mapaActs.get(actividad).toString().equals(Actividades.YOGA) || mapaActs.get(actividad).toString().equals(Actividades.SPINNING)){

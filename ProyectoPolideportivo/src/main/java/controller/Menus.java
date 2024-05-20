@@ -2,6 +2,7 @@ package controller;
 
 import util.FileManager;
 
+import javax.swing.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -10,6 +11,7 @@ import static com.diogonunes.jcolor.Ansi.colorize;
 import static com.diogonunes.jcolor.Attribute.*;
 
 public class Menus {
+    private static final int PASWORD = 33;
 
     public  static String menuInicial()  {
         Scanner sc = new Scanner(System.in);
@@ -25,21 +27,45 @@ public class Menus {
     }
 
     public static void menuAlta(Scanner sc, Oficinista oficinista){
+        System.out.print(colorize("\nSi eres admin, pon tu contraseña : ", BRIGHT_RED_TEXT()));
+        int paswd= sc.nextInt();
 
-        System.out.print(colorize("\nNombre de usuario: ",BRIGHT_RED_TEXT()));
-        String nomUser = sc.next();
-        System.out.print(colorize("\nIntroduce tu DNI para identificarte: ",BRIGHT_RED_TEXT()));
-        String DNI = sc.next();
-        System.out.print(colorize("\nAsignar contraseña: ",BRIGHT_RED_TEXT()));
-        String pass = sc.next();
+        if(paswd==PASWORD) {
 
-        Usuario usuario = new Usuario(nomUser,pass,DNI);
+            System.out.print(colorize("\nNombre de usuario: ", BRIGHT_RED_TEXT()));
+            String nomUser = sc.next();
+            System.out.print(colorize("\nIntroduce tu DNI para identificarte: ", BRIGHT_RED_TEXT()));
+            String DNI = sc.next();
+            System.out.print(colorize("\nEl usuario va ha ser admin? (true o false) : ", BRIGHT_RED_TEXT()));
+            boolean esAdmin = sc.nextBoolean();
+            System.out.print(colorize("\nAsignar contraseña: ", BRIGHT_RED_TEXT()));
+            String pass = sc.next();
+
+            Usuario usuario = new Usuario(nomUser, pass, DNI,esAdmin);
 
 
-        List<Usuario> usuarios1 = (List<Usuario>) FileManager.loadFileList(FileManager.LISTA_USUARIOS);
-        oficinista.darAlta(nomUser,pass,DNI,usuarios1,usuario);
-        System.out.print(colorize("\ncontroller.Usuario dado de Alta\n ",BRIGHT_RED_TEXT()));
+            List<Usuario> usuarios1 = (List<Usuario>) FileManager.loadFileList(FileManager.LISTA_USUARIOS);
+            oficinista.darAlta(nomUser, pass, DNI, usuarios1, usuario);
+            System.out.print(colorize("\ncontroller.Usuario dado de Alta\n ", BRIGHT_RED_TEXT()));
+        } else if (paswd!=33) {
 
+
+                System.out.print(colorize("\nNombre de usuario: ", BRIGHT_RED_TEXT()));
+                String nomUser = sc.next();
+                System.out.print(colorize("\nIntroduce tu DNI para identificarte: ", BRIGHT_RED_TEXT()));
+                String DNI = sc.next();
+                System.out.print(colorize("\nAsignar contraseña: ", BRIGHT_RED_TEXT()));
+                String pass = sc.next();
+
+                boolean esAdmin = false;
+                 Usuario usuario = new Usuario(nomUser, pass, DNI,esAdmin);
+
+
+                List<Usuario> usuarios1 = (List<Usuario>) FileManager.loadFileList(FileManager.LISTA_USUARIOS);
+                oficinista.darAlta(nomUser, pass, DNI, usuarios1, usuario);
+                System.out.print(colorize("\ncontroller.Usuario dado de Alta\n ", BRIGHT_RED_TEXT()));
+
+        }
     }
 
 
@@ -56,13 +82,22 @@ public class Menus {
         }
         System.out.println();
         System.out.print(colorize("--> ",BRIGHT_BLUE_TEXT()));
+
+
         int numUser = sc.nextInt();
+
+        if(numUser>contador){
+            System.out.println("El usuario no exsiste");
+            return false;
+
+        }
+
 
 
         System.out.println(colorize("\nIdentificación:", BLUE_TEXT()));
         System.out.print(colorize("-> ",BRIGHT_BLUE_TEXT()));
         String DNI= sc.next();
-        System.out.println(colorize("\ncontrasenya:", BLUE_TEXT()));
+        System.out.println(colorize("\nContrasenya:", BLUE_TEXT()));
         System.out.print(colorize("-> ",BRIGHT_BLUE_TEXT()));
         String pass= sc.next();
 
@@ -72,7 +107,8 @@ public class Menus {
 
         ArrayList<Usuario> usus2 = (ArrayList<Usuario>) FileManager.loadFileList(FileManager.LISTA_USUARIOS);
 
-        if (usus2.get(numUser).getDNI().toString().equals(DNI) && usus2.get(numUser).getPass().toString().equals(pass))
+        if (usus2.get(numUser).getDNI().toString().equals(DNI)
+                && usus2.get(numUser).getPass().toString().equals(pass))
             return true;
         return false;
     }
@@ -90,7 +126,16 @@ public class Menus {
         }
         System.out.println();
         System.out.print(colorize("--> ",BRIGHT_BLUE_TEXT()));
-        int numUser = sc.nextInt();
+
+        int numUser = 0;
+        if(sc.hasNextInt()) {
+            numUser = sc.nextInt();
+        }else{
+            sc.nextLine();
+            System.out.println(colorize("\nIndice incorrecto;", RED_TEXT()));
+
+            inicioSesionOficina(sc);
+        }
 
 
         System.out.println(colorize("\nIdentificación:", BLUE_TEXT()));

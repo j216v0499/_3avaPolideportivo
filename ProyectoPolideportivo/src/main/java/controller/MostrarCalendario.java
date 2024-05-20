@@ -45,7 +45,7 @@ public class MostrarCalendario {
                 //Introducción de horas en dias trabajadores y clientes en horas
                 for (int i = 0; i<10;i++) {
                     //public controller.Hora(String formato, List<controller.Usuario> cliente, controller.Trabajadores trabajador) {
-                    Usuario usuario = new Usuario("Disponible","pass",null);
+                    Usuario usuario = new Usuario("Disponible","pass",null,null);
                     Trabajadores trabajador = new Trabajadores("Nombre","pass",null);
 
                     usuarios.add(usuario);

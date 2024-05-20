@@ -10,9 +10,9 @@ import static com.diogonunes.jcolor.Ansi.colorize;
 import static com.diogonunes.jcolor.Attribute.BLUE_TEXT;
 import static com.diogonunes.jcolor.Attribute.BRIGHT_BLUE_TEXT;
 
-public class AppMovil {
+public class ParaUsuarios {
 
-    public static void appMovil(Scanner sc, Oficinista oficinista, Actividades actividad){
+    public static void appMovil(Scanner sc, Usuario oficinista, Actividades actividad){
 
         System.out.println(colorize("\n¿Ya tienes un usuario? (s/n) 'n' para darte de alta", BLUE_TEXT()));
         System.out.print(colorize("--> ",BRIGHT_BLUE_TEXT()));

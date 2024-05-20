@@ -9,7 +9,7 @@ import static com.diogonunes.jcolor.Ansi.colorize;
 import static com.diogonunes.jcolor.Attribute.BLUE_TEXT;
 import static com.diogonunes.jcolor.Attribute.BRIGHT_BLUE_TEXT;
 
-public class AppOficina {
+public class ParaOficinistas {
 
     public static void appOficina(Scanner sc, Oficinista oficinista, Actividades actividad){
 
@@ -18,42 +18,42 @@ public class AppOficina {
         String res1=sc.next();
         if (res1.equals("n")) {
             Menus.menuAlta(sc, oficinista);
-        }
-        while (!Menus.inicioSesionOficina(sc)){
-            System.out.println(colorize("inicio de sesion incorrecto", BLUE_TEXT()));
-        };
-        System.out.println(colorize("\nSesión iniciada", BLUE_TEXT()));
-
-        String res2="";
-        do {
-
-            System.out.println(colorize("\nAdmin detectado que deseas\n", BLUE_TEXT()));
-           // System.out.println(colorize("Sancionar(1)    quitar reserva(2)   mostrar calendario(3)   salir(4)    ver reservas(5)  VerificarSancionar(6)", BLUE_TEXT()));
-            System.out.println(colorize("Sancionar(1)  DardeAltaUsuarios(2) salir(3)  VerificarSancionar(4)", BLUE_TEXT()));
-
-            System.out.print(colorize("--> ",BRIGHT_BLUE_TEXT()));
-            res2 = sc.next();
-
-
-            if(res2.equals("1")){
-                System.out.println("que usuario quieres sancionar ? DNI:");
-                String DNI = sc.nextLine();
-                System.out.println("Sancion :");
-                String Sancion = sc.nextLine();
-                sancionarUsuario(DNI,Sancion);
+        }else {
+            while (!Menus.inicioSesionOficina(sc)) {
+                System.out.println(colorize("inicio de sesion incorrecto", BLUE_TEXT()));
             }
+            ;
+            System.out.println(colorize("\nSesión iniciada", BLUE_TEXT()));
 
-            if(res2.equals("4")){
-                System.out.println("que usuario quieres verificar ? DNI:");
-                Scanner scanner = new Scanner(System.in);
-                String DNI = scanner.nextLine();
-                buscarSancionarUsuario(DNI);
-            }
+            String res2 = "";
+            do {
 
-            if (res2.equals("2")){
-                Menus.menuAlta(sc, oficinista);
-            }
+                System.out.println(colorize("\nAdmin detectado que deseas\n", BLUE_TEXT()));
+                // System.out.println(colorize("Sancionar(1)    quitar reserva(2)   mostrar calendario(3)   salir(4)    ver reservas(5)  VerificarSancionar(6)", BLUE_TEXT()));
+                System.out.println(colorize("Sancionar(1)  DardeAltaUsuarios(2) salir(3)  VerificarSancionar(4)", BLUE_TEXT()));
 
+                System.out.print(colorize("--> ", BRIGHT_BLUE_TEXT()));
+                res2 = sc.next();
+
+
+                if (res2.equals("1")) {
+                    System.out.println("que usuario quieres sancionar ? DNI:");
+                    String DNI = sc.nextLine();
+                    System.out.println("Sancion :");
+                    String Sancion = sc.nextLine();
+                    sancionarUsuario(DNI, Sancion);
+                }
+
+                if (res2.equals("4")) {
+                    System.out.println("que usuario quieres verificar ? DNI:");
+                    Scanner scanner = new Scanner(System.in);
+                    String DNI = scanner.nextLine();
+                    buscarSancionarUsuario(DNI);
+                }
+
+                if (res2.equals("2")) {
+                    Menus.menuAlta(sc, oficinista);
+                }
 
 
 //            if (!res2.equals("3") && !res2.equals("4") && !res2.equals("1")) {
@@ -104,7 +104,8 @@ public class AppOficina {
 //                    verReservas(oficinista, actividad, FileManager.loadFile(FileManager.NUMERO_USUARIO), numSemana, numHora, numDia);
 //                }
 //            }
-        }while (!res2.equals("3"));
+            } while (!res2.equals("3"));
+        }
 
     }
 

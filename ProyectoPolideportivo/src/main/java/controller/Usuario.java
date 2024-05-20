@@ -8,11 +8,27 @@ public class Usuario extends Writable {
     private String nombre;
     private String pass;
 
-    public Usuario(String nombre, String pass,String DNI) {
+    private boolean esAdmin;
+    private boolean estaSancionado;
+
+
+    public Usuario(String nombre, String pass,String DNI,Boolean esAdmin ) {
         this.DNI = DNI;
         this.nombre = nombre;
         this.pass = pass;
+        this.esAdmin = esAdmin;
+        this.estaSancionado=false;
+
     }
+
+//    public Usuario(String nombre, String pass,String DNI) {
+//        this.DNI = DNI;
+//        this.nombre = nombre;
+//        this.pass = pass;
+//        this.esAdmin = false;
+//        this.estaSancionado=false;
+//
+//    }
 
 
     public String getNombre() {
@@ -37,5 +53,18 @@ public class Usuario extends Writable {
 
     public void setPass(String pass) {
         this.pass = pass;
+    }
+
+
+    public boolean isEsAdmin() {
+        return esAdmin;
+    }
+
+    public boolean isEstaSancionado() {
+        return estaSancionado;
+    }
+
+    public void setEstaSancionado(boolean estaSancionado) {
+        this.estaSancionado = estaSancionado;
     }
 }
