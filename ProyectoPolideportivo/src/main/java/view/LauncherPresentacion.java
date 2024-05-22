@@ -1,5 +1,9 @@
 package view;
 
+import controller.MostrarCalendario;
+import controller.ParaOficinistas;
+import controller.ParaUsuarios;
+
 import java.util.Scanner;
 
 public class LauncherPresentacion {
@@ -28,12 +32,18 @@ public class LauncherPresentacion {
 
         if(iniciadoComoUser){
 
+            ParaUsuarios.reservarYmostrar();
 
-
+            MostrarCalendario.mostrarCalendario();
 
         }
         if(iniciadoComoAdmi){
 
+            ParaOficinistas.sancionarUsuario();
+
+            ParaOficinistas.verSancionarUsuario();
+
+            MostrarCalendario.mostrarCalendario();
         }
     }
 }

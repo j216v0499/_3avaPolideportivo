@@ -114,7 +114,7 @@ public class ParaUsuarios {
 
     }
 
-    private static void reservarYmostrar(Oficinista oficinista,Actividades actividad,String nomReserva,int numUser,int numSemana,int numHora, int numDia, List<Reserva> reservas){
+    public static void reservarYmostrar(Oficinista oficinista,Actividades actividad,String nomReserva,int numUser,int numSemana,int numHora, int numDia, List<Reserva> reservas){
         oficinista.realizarReserva(actividad,nomReserva,numUser,numSemana,numHora,numDia);
         MostrarCalendario.mostrarCalendario(numSemana,actividad);
     }
@@ -124,7 +124,7 @@ public class ParaUsuarios {
         MostrarCalendario.mostrarCalendario(numSemana,actividad);
     }
 
-    private static void verReservas(Oficinista oficinista, Actividades actividad,int numUsuario, int numSemana, int numHora, int numDia){
+    public static void verReservas(Oficinista oficinista, Actividades actividad,int numUsuario, int numSemana, int numHora, int numDia){
 
         List<Reserva> reservas = (List<Reserva>) FileManager.getInstance().loadFileList("reservas");
 

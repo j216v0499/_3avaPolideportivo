@@ -50,7 +50,7 @@ public class ParaOficinistas {
                     System.out.println("que usuario quieres verificar ? DNI:");
                     Scanner scanner = new Scanner(System.in);
                     String DNI = scanner.nextLine();
-                    buscarSancionarUsuario(DNI);
+                    verSancionarUsuario(DNI);
                 }
 
                 if (res2.equals("2")) {
@@ -124,7 +124,7 @@ public class ParaOficinistas {
 
     }
 
-    public static void buscarSancionarUsuario(String dni){
+    public static void verSancionarUsuario(String dni){
         List<Reserva> reservas = (List<Reserva>) FileManager.getInstance().loadFileList("reservas");
 
 
