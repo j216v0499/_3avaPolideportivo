@@ -35,4 +35,4 @@ Con
 
 Cosas ya hechas
     El modelo vista controlador, esta empezado de momento, asi sirve
-    FileManajer, ya tiene un Repository y su javaDoc
+    FileManajer, ya tiene un Repository, es singleton y cumple solid y su javaDoc

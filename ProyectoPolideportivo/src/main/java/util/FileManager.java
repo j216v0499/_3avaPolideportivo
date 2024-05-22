@@ -13,22 +13,15 @@ public class FileManager<T> implements FileManagerRepository<T> {
 
     public static final String LISTA_USUARIOS = "listausu";
     public static final String NUMERO_USUARIO = "numUser";
-    public static final String CAL_FUTBOL = "FUTBOL";
-    public static final String CAL_BALONCESTO = "BALONCESTO";
-    public static final String CAL_PADEL = "PADEL";
-    public static final String CAL_TENIS = "TENIS";
-    public static final String CAL_FRONTON = "FRONTON";
-    public static final String CAL_YOGA = "YOGA";
-    public static final String CAL_SPINNING = "SPINNING";
 
     private static FileManager instance;
 
     private FileManager() {}
 
     /**
-     * Gets the single instance of FileManager.
+     * Obtiene una sola  instancia de FileManager.
      *
-     * @return single instance of FileManager
+     * @return instancia de FileManager
      */
     public static synchronized FileManager getInstance() {
         if (instance == null) {
@@ -38,17 +31,16 @@ public class FileManager<T> implements FileManagerRepository<T> {
     }
 
     /**
-     * Saves an object to a file.
+     * Guarda un objeto en un fichero
      *
-     * @param fileName the name of the file
-     * @param object the object to save
+     * @param fileName nombre del archivo
+     * @param object objeto
      */
     @Override
     public void saveFile(String fileName, T object) {
         File file = new File(fileName);
         try (FileOutputStream fos = new FileOutputStream(file);
-             ObjectOutputStream escribir = new ObjectOutputStream(fos)) {
-
+            ObjectOutputStream escribir = new ObjectOutputStream(fos)) {
             escribir.writeObject(object);
 
         } catch (Exception e) {
@@ -57,10 +49,10 @@ public class FileManager<T> implements FileManagerRepository<T> {
     }
 
     /**
-     * Loads an object from a file.
+     * Carga un objeto de un fichero.
      *
-     * @param fileName the name of the file
-     * @return the loaded object
+     * @param fileName nombre del archivo
+     * @return objeto
      */
     @Override
     public T loadFile(String fileName) {
@@ -69,6 +61,7 @@ public class FileManager<T> implements FileManagerRepository<T> {
         try (FileInputStream fis = new FileInputStream(file);
              ObjectInputStream reader = new ObjectInputStream(fis)) {
 
+            //Aquí puede haber problemas, por el tema del casting
             object = (T) reader.readObject();
 
         } catch (Exception e) {
@@ -78,10 +71,10 @@ public class FileManager<T> implements FileManagerRepository<T> {
     }
 
     /**
-     * Saves a list of objects to a file.
+     * Guarda una lista de objetos en un fichero.
      *
-     * @param fileName the name of the file
-     * @param objects the list of objects to save
+     * @param fileName nombre del fichero
+     * @param objects lista de los objetos
      */
     @Override
     public void saveFileList(String fileName, List<?> objects) {
@@ -97,10 +90,10 @@ public class FileManager<T> implements FileManagerRepository<T> {
     }
 
     /**
-     * Loads a list of objects from a file.
+     * Carga una lista de objetos desde un fichero.
      *
-     * @param fileName the name of the file
-     * @return the loaded list of objects
+     * @param fileName nombre fichero
+     * @return lista de objetos
      */
     @Override
     public List<T> loadFileList(String fileName) {
@@ -109,6 +102,7 @@ public class FileManager<T> implements FileManagerRepository<T> {
         try (FileInputStream fis = new FileInputStream(file);
              ObjectInputStream reader = new ObjectInputStream(fis)) {
 
+            //Aquí puede haber problemas, por el tema del casting
             list = (List<T>) reader.readObject();
 
         } catch (Exception e) {
@@ -118,10 +112,10 @@ public class FileManager<T> implements FileManagerRepository<T> {
     }
 
     /**
-     * Saves a map of objects to a file.
+     * Guarda un mapa de objetos en un fichero.
      *
-     * @param fileName the name of the file
-     * @param objects the map of objects to save
+     * @param fileName nombre archivo
+     * @param objects mapa de objetos
      */
     @Override
     public void saveFileMap(String fileName, Map<?, ?> objects) {
@@ -137,10 +131,10 @@ public class FileManager<T> implements FileManagerRepository<T> {
     }
 
     /**
-     * Loads a map of objects from a file.
+     * Carga un mapa de objetos desde un fichero.
      *
-     * @param fileName the name of the file
-     * @return the loaded map of objects
+     * @param fileName nombre archivo
+     * @return mapa de objetos
      */
     @Override
     public Map<?, ?> loadFileMap(String fileName) {
