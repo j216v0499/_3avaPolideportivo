@@ -1,7 +1,5 @@
 package view;
 
-import static com.diogonunes.jcolor.Ansi.colorize;
-
 public class Main {
     public static void main(String[] args) {
         /**

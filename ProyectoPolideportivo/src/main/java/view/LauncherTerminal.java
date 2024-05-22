@@ -17,8 +17,6 @@ public class LauncherTerminal {
             Oficinista oficinista = new Oficinista();
             Map<Actividades, List<Semana>> semanaActs = new HashMap<>();
 
-
-
             // Definir y asignar un valor a actividad
             Actividades actividad = Actividades.FUTBOL; // O cualquier otro valor que sea adecuado para tu aplicación
 
