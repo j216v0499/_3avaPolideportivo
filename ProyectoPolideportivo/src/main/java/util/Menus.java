@@ -1,4 +1,4 @@
-package view;
+package util;
 
 import controller.Actividades;
 import controller.Oficinista;

@@ -2,7 +2,7 @@ package controller;
 
 import model.Reserva;
 import util.FileManager;
-import view.Menus;
+import util.Menus;
 
 import java.util.List;
 import java.util.Scanner;

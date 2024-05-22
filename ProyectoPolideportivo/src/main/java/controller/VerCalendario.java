@@ -1,6 +1,6 @@
 package controller;
 
-import view.Menus;
+import util.Menus;
 
 import java.util.Scanner;
 
