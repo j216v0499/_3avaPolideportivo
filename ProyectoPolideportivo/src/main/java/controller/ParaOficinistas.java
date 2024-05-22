@@ -1,6 +1,8 @@
 package controller;
 
+import model.Reserva;
 import util.FileManager;
+import view.Menus;
 
 import java.util.List;
 import java.util.Scanner;
@@ -68,17 +70,17 @@ public class ParaOficinistas {
 //                int numAct = sc.nextInt();
 //                actividad = Menus.eleccionActividad(actividad, numAct);
 //
-//                //controller.Semana
+//                //model.Semana
 //                System.out.println(colorize("\n¿En que semana quieres situarte? (0-51)", BLUE_TEXT()));
 //                System.out.print(colorize("--> ", BRIGHT_BLUE_TEXT()));
 //                int numSemana = sc.nextInt();
 //
-//                //controller.Dia
+//                //model.Dia
 //                System.out.println(colorize("\n¿Que dia quieres quitar / ver reserva? (0-4)", BLUE_TEXT()));
 //                System.out.print(colorize("--> ", BRIGHT_BLUE_TEXT()));
 //                int numDia = sc.nextInt();
 //
-//                //controller.Hora
+//                //model.Hora
 //                int cont2 = 8;
 //                System.out.println(colorize("\n¿A que hora?", BLUE_TEXT()));
 //                for (int i = 0; i < 10; i++) {

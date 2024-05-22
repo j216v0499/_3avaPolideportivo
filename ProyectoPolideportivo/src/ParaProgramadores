@@ -1,0 +1,32 @@
+1. Login.
+
+3. Sancionar usuario.
+
+4. Dar de alta usuario.
+
+
+Con
+    Javadoc
+        @autor identifica el nombre del autor o autora de la clase
+        @version, la identificación de la versión y fecha.
+        @param: seguido del nombre, se usa para indicar cada uno de los parámetros que tienen el
+        constructor o método.
+        @return: si el método no es void, se indica lo que devuelve.
+        @exception: se indica el nombre de la excepción, especificando cuales pueden lanzarse.
+        @throws: se indica el nombre de la excepción, especificando las excepciones que pueden
+        lanzarse.
+
+        Por obligación (javadoc):
+        al principio de cada clase
+        al principio de cada método
+        ante cada variable de clase
+        Por conveniencia (una línea):
+
+        al principio de fragmento de código no evidente
+        a lo largo de los bucles
+
+    Refactorizacion
+    Solid
+    Singletone
+    Repositori
+

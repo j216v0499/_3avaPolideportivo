@@ -1,8 +1,10 @@
-package controller;
+package view;
 
+import controller.Actividades;
+import controller.Oficinista;
+import model.Usuario;
 import util.FileManager;
 
-import javax.swing.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -46,7 +48,7 @@ public class Menus {
 
             List<Usuario> usuarios1 = (List<Usuario>) FileManager.loadFileList(FileManager.LISTA_USUARIOS);
             oficinista.darAlta(nomUser, pass, DNI, usuarios1, usuario);
-            System.out.print(colorize("\ncontroller.Usuario dado de Alta\n ", BRIGHT_RED_TEXT()));
+            System.out.print(colorize("\nmodel.Usuario dado de Alta\n ", BRIGHT_RED_TEXT()));
         } else if (paswd!=33) {
 
 
@@ -63,7 +65,7 @@ public class Menus {
 
                 List<Usuario> usuarios1 = (List<Usuario>) FileManager.loadFileList(FileManager.LISTA_USUARIOS);
                 oficinista.darAlta(nomUser, pass, DNI, usuarios1, usuario);
-                System.out.print(colorize("\ncontroller.Usuario dado de Alta\n ", BRIGHT_RED_TEXT()));
+                System.out.print(colorize("\nmodel.Usuario dado de Alta\n ", BRIGHT_RED_TEXT()));
 
         }
     }
@@ -157,7 +159,7 @@ public class Menus {
     }
 
 
-    public static Actividades eleccionActividad(Actividades actividad,int numAct){
+    public static Actividades eleccionActividad(Actividades actividad, int numAct){
         switch (numAct){
             case 1:{actividad=Actividades.FUTBOL;}break;
             case 2:{actividad=Actividades.BALONCESTO;}break;

@@ -1,6 +1,8 @@
 package controller;
 
+import model.*;
 import util.FileManager;
+import view.Menus;
 
 import java.time.DayOfWeek;
 import java.time.LocalDate;
@@ -44,7 +46,7 @@ public class MostrarCalendario {
 
                 //Introducción de horas en dias trabajadores y clientes en horas
                 for (int i = 0; i<10;i++) {
-                    //public controller.Hora(String formato, List<controller.Usuario> cliente, controller.Trabajadores trabajador) {
+                    //public model.Hora(String formato, List<model.Usuario> cliente, model.Trabajadores trabajador) {
                     Usuario usuario = new Usuario("Disponible","pass",null,null);
                     Trabajadores trabajador = new Trabajadores("Nombre","pass",null);
 
@@ -83,7 +85,7 @@ public class MostrarCalendario {
         Map<Actividades, List<Semana>> semanaActs = FileManager.loadFileMap("mapa");
 
         System.out.println(colorize("\n*------------------------------------------------------------------------------------------------------------------------*"));
-        System.out.println(colorize("    controller.Semana (" + numSemana + ") "  + semanaActs.get(actividad).get(numSemana).getInicio().toString() + " - " + actividad.toString()));
+        System.out.println(colorize("    model.Semana (" + numSemana + ") "  + semanaActs.get(actividad).get(numSemana).getInicio().toString() + " - " + actividad.toString()));
         System.out.println(colorize("*------------------------------------------------------------------------------------------------------------------------*"));
         System.out.println(colorize("    Horario               Lunes            Martes        Miércoles          Jueves          Viernes  "));
         System.out.println(colorize("*------------------------------------------------------------------------------------------------------------------------*"));
@@ -121,7 +123,7 @@ public class MostrarCalendario {
         int numAct = sc.nextInt();
         actividad =  Menus.eleccionActividad(actividad, numAct);
 
-        System.out.println(colorize("\n¿controller.Semana? (0-51)", BLUE_TEXT()));
+        System.out.println(colorize("\n¿model.Semana? (0-51)", BLUE_TEXT()));
         System.out.print(colorize("--> ",BRIGHT_BLUE_TEXT()));
         int numSemana = sc.nextInt();
 

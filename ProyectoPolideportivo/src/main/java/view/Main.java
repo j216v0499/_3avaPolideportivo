@@ -1,9 +1,5 @@
 package view;
 
-import controller.*;
-
-import java.util.*;
-
 import static com.diogonunes.jcolor.Ansi.colorize;
 
 public class Main {

@@ -1,6 +1,8 @@
-package controller;
+package model;
 
 import base.Writable;
+import model.Trabajadores;
+import model.Usuario;
 
 import java.util.List;
 

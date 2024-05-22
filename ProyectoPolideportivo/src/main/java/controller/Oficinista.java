@@ -1,6 +1,11 @@
 package controller;
 
 import java.util.ArrayList;
+
+import model.Reserva;
+import model.Semana;
+import model.Trabajadores;
+import model.Usuario;
 import util.FileManager;
 import java.util.List;
 import java.util.Map;
@@ -13,7 +18,7 @@ public class Oficinista extends Trabajadores{
         super();
     }
 
-    public void darAlta(String nomCliente,String passwdCliente,String DNI,List<Usuario> usuarios1,Usuario usuario){
+    public void darAlta(String nomCliente, String passwdCliente, String DNI, List<Usuario> usuarios1, Usuario usuario){
 
         //guardar al cliente en lista con filemanager
         if (usuarios1==null)

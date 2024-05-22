@@ -1,6 +1,8 @@
-package controller;
+package model;
 
-public class Administradores extends Trabajadores{
+import model.Trabajadores;
+
+public class Administradores extends Trabajadores {
 
     private Administradores(String nombre, String pass, String DNI) {
         super(nombre, pass, DNI);
