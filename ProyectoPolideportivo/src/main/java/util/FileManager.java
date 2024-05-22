@@ -12,6 +12,8 @@ import java.util.Map;
 public class FileManager<T> implements FileManagerRepository<T> {
 
     public static final String LISTA_USUARIOS = "listausu";
+    public static final String LISTA_USUARIOS_BAN = "listausuban";
+
     public static final String NUMERO_USUARIO = "numUser";
 
     private static FileManager instance;
@@ -150,6 +152,8 @@ public class FileManager<T> implements FileManagerRepository<T> {
         }
         return map;
     }
+
+
 }
 
 

@@ -15,7 +15,17 @@ import static com.diogonunes.jcolor.Attribute.BRIGHT_BLUE_TEXT;
 
 public class ParaUsuarios {
 
-    public static void appMovil(Scanner sc, Oficinista oficinista, Actividades actividad){
+
+    /**
+     *  carga la aplicaccion movil
+     *
+     * @param sc se espera la entrada del usuario
+     * @param oficinista se espera el acceso de un oficinista
+     *
+     *
+     */
+
+    public static void appMovil(Scanner sc, Oficinista oficinista){
 
         System.out.println(colorize("\n¿Ya tienes un usuario? (s/n) 'n' para darte de alta", BLUE_TEXT()));
         System.out.print(colorize("--> ",BRIGHT_BLUE_TEXT()));
@@ -35,11 +45,6 @@ public class ParaUsuarios {
             System.out.println(colorize("Inicio de sesión incorrecto", BLUE_TEXT()));
         }
 
-
-
-
-
-
 //        while (!Menus.inicioSesionUsuarios(sc)){
 //            System.out.println(colorize("inicio de sesion incorrecto", BLUE_TEXT()));
 //        };
@@ -53,95 +58,95 @@ public class ParaUsuarios {
             System.out.print(colorize("--> ",BRIGHT_BLUE_TEXT()));
             res2 = sc.next();
 
-            if (res2.equals("3")){
-                VerCalendario.verCalendario(sc);
-            }
+//            if (res2.equals("3")){
+//                VerCalendario.verCalendario(sc);
+//            }
 
-            if (!res2.equals("3") && !res2.equals("4")) {
-                //Actividad
-                System.out.println(colorize("\n¿Que actividad eliges para reservar?", BLUE_TEXT()));
-                int cont1 = 0;
-                for (Actividades act : Actividades.values()) {
-                    System.out.println(colorize("(" + cont1 + ")" + act.toString(), BLUE_TEXT()));
-                    cont1++;
-                }
-                System.out.print(colorize("--> ", BRIGHT_BLUE_TEXT()));
-                int numAct = sc.nextInt();
-                actividad = Menus.eleccionActividad(actividad, numAct);
-
-                //Semana
-                System.out.println(colorize("\n¿En que semana quieres situarte? (0-51)", BLUE_TEXT()));
-                System.out.print(colorize("--> ", BRIGHT_BLUE_TEXT()));
-                int numSemana = sc.nextInt();
-
-                //Dia
-                System.out.println(colorize("\n¿Que dia quieres reservar? (0-4)", BLUE_TEXT()));
-                System.out.print(colorize("--> ", BRIGHT_BLUE_TEXT()));
-                int numDia = sc.nextInt();
-
-                //Hora
-                int cont2 = 8;
-                System.out.println(colorize("\n¿A que hora?", BLUE_TEXT()));
-                for (int i = 0; i < 10; i++) {
-                    if (cont2 < 10) {
-                        System.out.println(colorize("(" + i + ")    0" + cont2 + ":00               ", BLUE_TEXT()));
-                    } else {
-                        System.out.println(colorize("(" + i + ")    " + cont2 + ":00               ", BLUE_TEXT()));
-                    }
-                    if (cont2 == 13) {
-                        cont2 = cont2 + 4;
-                    } else {
-                        cont2++;
-                    }
-                }
-                System.out.print(colorize("--> ", BRIGHT_BLUE_TEXT()));
-                int numHora = sc.nextInt();
-
-                if (res2.equals("1")) {
-                    int numeroUsuario = (int) FileManager.getInstance().loadFile(FileManager.NUMERO_USUARIO);
-                    reservarYmostrar(oficinista, actividad, "Reservado", numeroUsuario, numSemana, numHora, numDia, (List<Reserva>) FileManager.getInstance().loadFileList("reservas"));
-                } else if (res2.equals("2")) {
-                    int numeroUsuario = (int) FileManager.getInstance().loadFile(FileManager.NUMERO_USUARIO);
-                    quitarYmostrar(oficinista, actividad, numeroUsuario, numSemana, numHora, numDia);
-                }
-
-                if (res2.equals("5")) {
-                    int numeroUsuario = (int) FileManager.getInstance().loadFile(FileManager.NUMERO_USUARIO);
-                    verReservas(oficinista, actividad, numeroUsuario, numSemana, numHora, numDia);
-                }
-            }
+//            if (!res2.equals("3") && !res2.equals("4")) {
+//                //Actividad
+//                System.out.println(colorize("\n¿Que actividad eliges para reservar?", BLUE_TEXT()));
+//                int cont1 = 0;
+//                for (Actividades act : Actividades.values()) {
+//                    System.out.println(colorize("(" + cont1 + ")" + act.toString(), BLUE_TEXT()));
+//                    cont1++;
+//                }
+//                System.out.print(colorize("--> ", BRIGHT_BLUE_TEXT()));
+//                int numAct = sc.nextInt();
+//                actividad = Menus.eleccionActividad(actividad, numAct);
+//
+//                //Semana
+//                System.out.println(colorize("\n¿En que semana quieres situarte? (0-51)", BLUE_TEXT()));
+//                System.out.print(colorize("--> ", BRIGHT_BLUE_TEXT()));
+//                int numSemana = sc.nextInt();
+//
+//                //Dia
+//                System.out.println(colorize("\n¿Que dia quieres reservar? (0-4)", BLUE_TEXT()));
+//                System.out.print(colorize("--> ", BRIGHT_BLUE_TEXT()));
+//                int numDia = sc.nextInt();
+//
+//                //Hora
+//                int cont2 = 8;
+//                System.out.println(colorize("\n¿A que hora?", BLUE_TEXT()));
+//                for (int i = 0; i < 10; i++) {
+//                    if (cont2 < 10) {
+//                        System.out.println(colorize("(" + i + ")    0" + cont2 + ":00               ", BLUE_TEXT()));
+//                    } else {
+//                        System.out.println(colorize("(" + i + ")    " + cont2 + ":00               ", BLUE_TEXT()));
+//                    }
+//                    if (cont2 == 13) {
+//                        cont2 = cont2 + 4;
+//                    } else {
+//                        cont2++;
+//                    }
+//                }
+//                System.out.print(colorize("--> ", BRIGHT_BLUE_TEXT()));
+//                int numHora = sc.nextInt();
+//
+//                if (res2.equals("1")) {
+//                    int numeroUsuario = (int) FileManager.getInstance().loadFile(FileManager.NUMERO_USUARIO);
+//                    reservarYmostrar(oficinista, actividad, "Reservado", numeroUsuario, numSemana, numHora, numDia, (List<Reserva>) FileManager.getInstance().loadFileList("reservas"));
+//                } else if (res2.equals("2")) {
+//                    int numeroUsuario = (int) FileManager.getInstance().loadFile(FileManager.NUMERO_USUARIO);
+//                    quitarYmostrar(oficinista, actividad, numeroUsuario, numSemana, numHora, numDia);
+//                }
+//
+//                if (res2.equals("5")) {
+//                    int numeroUsuario = (int) FileManager.getInstance().loadFile(FileManager.NUMERO_USUARIO);
+//                    verReservas(oficinista, actividad, numeroUsuario, numSemana, numHora, numDia);
+//                }
+//            }
         }while (!res2.equals("4"));
 
     }
 
-    public static void reservarYmostrar(Oficinista oficinista,Actividades actividad,String nomReserva,int numUser,int numSemana,int numHora, int numDia, List<Reserva> reservas){
-        oficinista.realizarReserva(actividad,nomReserva,numUser,numSemana,numHora,numDia);
-        MostrarCalendario.mostrarCalendario(numSemana,actividad);
-    }
+//    public static void reservarYmostrar(Oficinista oficinista,Actividades actividad,String nomReserva,int numUser,int numSemana,int numHora, int numDia, List<Reserva> reservas){
+//        oficinista.realizarReserva(actividad,nomReserva,numUser,numSemana,numHora,numDia);
+//        MostrarCalendario.mostrarCalendario(numSemana,actividad);
+//    }
 
-    private static void quitarYmostrar(Oficinista oficinista,Actividades actividad, int numUser, int numSemana, int numHora, int numDia){
-        oficinista.quitarReserva(actividad, numUser,numSemana,numHora,numDia, (List<Reserva>) FileManager.getInstance().loadFileList("reservas"));
-        MostrarCalendario.mostrarCalendario(numSemana,actividad);
-    }
+//    private static void quitarYmostrar(Oficinista oficinista,Actividades actividad, int numUser, int numSemana, int numHora, int numDia){
+//        oficinista.quitarReserva(actividad, numUser,numSemana,numHora,numDia, (List<Reserva>) FileManager.getInstance().loadFileList("reservas"));
+//        MostrarCalendario.mostrarCalendario(numSemana,actividad);
+//    }
 
-    public static void verReservas(Oficinista oficinista, Actividades actividad,int numUsuario, int numSemana, int numHora, int numDia){
+//    public static void verReservas(Oficinista oficinista, Actividades actividad,int numUsuario, int numSemana, int numHora, int numDia){
+//
+//        List<Reserva> reservas = (List<Reserva>) FileManager.getInstance().loadFileList("reservas");
+//
+//        int cont = 0;
+//        for (Reserva reserva : reservas){
+//            System.out.println(colorize("(" + cont + ")" + "semana:" +reserva.getNumSemana() + ", dia:" + reserva.getNumDia() + ", hora:" + reserva.getNumHora() + ", actividad:" + reserva.getActividad().toString(),BLUE_TEXT()));
+//            cont++;
+//        }
+//    }
 
-        List<Reserva> reservas = (List<Reserva>) FileManager.getInstance().loadFileList("reservas");
-
-        int cont = 0;
-        for (Reserva reserva : reservas){
-            System.out.println(colorize("(" + cont + ")" + "semana:" +reserva.getNumSemana() + ", dia:" + reserva.getNumDia() + ", hora:" + reserva.getNumHora() + ", actividad:" + reserva.getActividad().toString(),BLUE_TEXT()));
-            cont++;
-        }
-    }
-
-    public static void rellenarActividades(List<Semana> SEMANAS, Map<Actividades,List<Semana>> semanaActs){
-
-        for (Actividades actividades : Actividades.values()){
-            semanaActs.put(actividades,SEMANAS);
-        }
-        FileManager.getInstance().saveFileMap("mapa", semanaActs);
-
-    }
+//    public static void rellenarActividades(List<Semana> SEMANAS, Map<Actividades,List<Semana>> semanaActs){
+//
+//        for (Actividades actividades : Actividades.values()){
+//            semanaActs.put(actividades,SEMANAS);
+//        }
+//        FileManager.getInstance().saveFileMap("mapa", semanaActs);
+//
+//    }
 
 }

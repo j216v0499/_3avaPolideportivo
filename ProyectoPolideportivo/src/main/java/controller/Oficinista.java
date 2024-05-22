@@ -18,6 +18,15 @@ public class Oficinista extends Trabajadores{
         super();
     }
 
+    /**
+     *  se espera dar de alta un usuario
+     *
+     * @param nomCliente nombre del cliente
+     * @param passwdCliente contraseña cliente
+     * @param DNI dni del cliente
+     * @param usuario se espera el acceso del usuario
+     * @param usuarios1 lista de usuarios
+     * */
     public void darAlta(String nomCliente, String passwdCliente, String DNI, List<Usuario> usuarios1, Usuario usuario){
 
         //guardar al cliente en lista con filemanager
@@ -28,6 +37,16 @@ public class Oficinista extends Trabajadores{
 
     }
 
+    /**
+     * realizar una reserva
+     *
+     * @param actividad nombre de la actividad
+     * @param nomReserva se espera el nombre de la reserva
+     * @param numUser numero del cliente
+     * @param numSemana espera el número de la semana
+     * @param numHora espera la hora
+     * @param numDia espera el día
+     * */
     public void realizarReserva(Actividades actividad, String nomReserva, int numUser, int numSemana, int numHora, int numDia){
 
         Map<Actividades, List<Semana>> mapaActs =
@@ -54,6 +73,17 @@ public class Oficinista extends Trabajadores{
 
     }
 
+
+    /**
+     * se espera quitar una reserva
+     *
+     * @param actividad nombre de la actividad
+     * @param numUser numero del cliente
+     * @param numSemana espera el número de la semana
+     * @param numHora espera la hora
+     * @param numDia espera el día
+     * @param reservas se espera una lista de las reservas
+     * */
     public void quitarReserva(Actividades actividad, int numUser, int numSemana, int numHora, int numDia, List<Reserva> reservas){
 
         Map<Actividades, List<Semana>> mapaActs = FileManager.getInstance().loadFileMap("mapa");
@@ -65,6 +95,17 @@ public class Oficinista extends Trabajadores{
 
     }
 
+
+    /**
+     * se espera asignar un trabajador a la actividad
+     *
+     * @param actividad nombre de la actividad
+     * @param numSemana espera el número de la semana
+     * @param numHora espera la hora
+     * @param numDia espera el día
+     * @param trabajador se espera el objeto de tipo trabajador
+     *
+     * */
     private void asignarTrabajador(Actividades actividad, int numSemana,int numDia, int numHora, Trabajadores trabajador){
 
 
@@ -76,6 +117,17 @@ public class Oficinista extends Trabajadores{
 
     }
 
+
+    /**
+     * se espera poder ver las reservas realizadas
+     *
+     * @param oficinista se espera el objeto de tipo oficinista
+     * @param actividad nombre de la actividad
+     * @param numUsuario  se espera el numero del usuario
+     * @param numSemana espera el número de la semana
+     * @param numHora espera la hora
+     * @param numDia espera el día
+     * */
     private static void verReservas(Oficinista oficinista, Actividades actividad,int numUsuario, int numSemana, int numHora, int numDia){
 
         List<Reserva> reservas = (List<Reserva>) FileManager.getInstance().loadFileList("reservas");

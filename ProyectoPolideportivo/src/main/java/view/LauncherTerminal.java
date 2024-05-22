@@ -18,15 +18,17 @@ public class LauncherTerminal {
         Map<Actividades, List<Semana>> semanaActs = new HashMap<>();
 
         // Definir y asignar un valor a actividad
-        Actividades actividad = Actividades.FUTBOL; // O cualquier otro valor que sea adecuado para tu aplicación
+        Actividades actividad = Actividades.FUTBOL;
 
         // Manejo del menú inicial
-        LauncherTerminal.manejarMenuInicial(sc, oficinista, semanaActs, actividad);
+        LauncherTerminal.manejarMenuInicial(sc, oficinista, semanaActs);
+        //LauncherTerminal.manejarMenuInicial(sc, oficinista, semanaActs);
+
     }
 
     private void cargarArchivos(Map<Actividades, List<Semana>> semanaActs) {
         if (FileManager.getInstance().loadFileMap("mapa") == null) {
-            ParaUsuarios.rellenarActividades(CrearCalendario.calendario(), semanaActs);
+            //TODO --> ParaUsuarios.rellenarActividades(CrearCalendario.calendario(), semanaActs);
         }
 
         if (FileManager.getInstance().loadFileMap("reservas") == null) {
@@ -35,18 +37,18 @@ public class LauncherTerminal {
         }
     }
 
-    private static void manejarMenuInicial(Scanner sc, Oficinista oficinista, Map<Actividades, List<Semana>> semanaActs, Actividades actividad) {
+    private static void manejarMenuInicial(Scanner sc, Oficinista oficinista, Map<Actividades, List<Semana>> semanaActs) {
         boolean opcionCorrecta = false;
         while (!opcionCorrecta) {
             String opcion = Menus.menuInicial();
             switch (opcion) {
                 case "1":
                     opcionCorrecta = true;
-                    ParaUsuarios.appMovil(sc, oficinista, actividad);
+                    ParaUsuarios.appMovil(sc, oficinista);
                     break;
                 case "2":
                     opcionCorrecta = true;
-                    ParaOficinistas.appOficina(sc, oficinista, actividad);
+                    ParaOficinistas.appOficina(sc, oficinista);
                     break;
                 default:
                     System.out.println("Opción inválida. Por favor, seleccione de nuevo.");

@@ -1,19 +1,28 @@
 package controller;
 
 import model.Reserva;
+import model.Usuario;
 import util.FileManager;
 import util.Menus;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
 import static com.diogonunes.jcolor.Ansi.colorize;
-import static com.diogonunes.jcolor.Attribute.BLUE_TEXT;
-import static com.diogonunes.jcolor.Attribute.BRIGHT_BLUE_TEXT;
+import static com.diogonunes.jcolor.Attribute.*;
 
 public class ParaOficinistas {
 
-    public static void appOficina(Scanner sc, Oficinista oficinista, Actividades actividad){
+    /**
+     * realizar una reserva
+     *
+     * @param oficinista se espera el objeto de tipo oficinista
+     * @param sc espera la entrada del usuario
+     *
+     * */
+
+    public static void appOficina(Scanner sc, Oficinista oficinista){
 
         System.out.println(colorize("\n¿Ya tienes un usuario? (s/n) 'n' para darte de alta", BLUE_TEXT()));
         System.out.print(colorize("--> ",BRIGHT_BLUE_TEXT()));
@@ -39,11 +48,12 @@ public class ParaOficinistas {
 
 
                 if (res2.equals("1")) {
-                    System.out.println("que usuario quieres sancionar ? DNI:");
-                    String DNI = sc.nextLine();
+                    System.out.println("que usuario quieres sancionar ?");
+                    System.out.println("Dni -->");
+                    String dni = sc.nextLine();
                     System.out.println("Sancion :");
-                    String Sancion = sc.nextLine();
-                    sancionarUsuario(DNI, Sancion);
+                    String sancion = sc.nextLine();
+                    sancionarUsuario(dni, sancion);
                 }
 
                 if (res2.equals("4")) {
@@ -111,28 +121,65 @@ public class ParaOficinistas {
 
     }
 
+    /**
+     * Buscar al usuario
+     * Quitarle todas las reservas
+     * Reordenar las reservas
+     * Anadir el usuario y su sancion a un archivo de sanciones
+     *
+     * */
+    public static void sancionarUsuario(String dni,String sancion){
 
-    public static void sancionarUsuario(String dni,String Sancion){
-/*
-* Buscar al usuario
-* Quitarle todas las reservas
-* Reordenar las reservas
-* Anadir el usuario y su sancion a un archivo de sanciones
-* 
-* */
- //    FileManager.saveFileList( usuarios ,"numUser");
+        List<Usuario> usuarios1 = (List<Usuario>) FileManager.getInstance().loadFileList(FileManager.LISTA_USUARIOS);
+
+        //List<Usuario> baneados = (List<Usuario>) FileManager.getInstance().loadFileList(FileManager.LISTA_USUARIOS_BAN);
+
+        for (Usuario usuario : usuarios1) {
+
+            if(usuario.getDNI().equals(dni)) {
+
+                usuario.setSancion("sancion");
+                usuarios1.add(usuario);
+
+                FileManager.getInstance().saveFileList(FileManager.LISTA_USUARIOS_BAN, usuarios1);
+
+            }
+        }
+
+        System.out.print(colorize("\nSancionarUsuario, se ha terminado el metodo \n ", BRIGHT_RED_TEXT()));
+
+    }
+    public static void darSancion(List<Usuario> usuarios1, Usuario usuario){
+
+        //guardar al cliente en lista con filemanager
+        if (usuarios1==null)
+            usuarios1 = new ArrayList<>();
+        usuarios1.add(usuario);
 
     }
 
+    /**
+     * espera poder ver que un usuario esta sancionado
+     * @param dni se espera ver el dni del usuario sancionado
+     *
+     * */
     public static void verSancionarUsuario(String dni){
-        List<Reserva> reservas = (List<Reserva>) FileManager.getInstance().loadFileList("reservas");
+        //List<Reserva> reservas = (List<Reserva>) FileManager.getInstance().loadFileList("reservas");
 
+        List<Usuario> usuarios1 = (List<Usuario>) FileManager.getInstance().loadFileList(FileManager.LISTA_USUARIOS);
 
-        for (Reserva reserva : reservas){
-//            if(dni){
-//                System.out.println(reserva);
-//            }
+        //List<Usuario> baneados = (List<Usuario>) FileManager.getInstance().loadFileList(FileManager.LISTA_USUARIOS_BAN);
+
+        for (Usuario usuario : usuarios1) {
+
+            if(usuario.getDNI().equals(dni)) {
+
+                System.out.println(usuario.getSancion());
+                System.out.println(usuario.toString());
+
+            }
         }
+
     }
 
 
@@ -140,7 +187,17 @@ public class ParaOficinistas {
         oficinista.quitarReserva(actividad, numUser,numSemana,numHora,numDia, (List<Reserva>) FileManager.getInstance().loadFileList("reservas"));
         MostrarCalendario.mostrarCalendario(numSemana,actividad);
     }
-
+    /**
+     * espera poder ver las reservas
+     *
+     * @param oficinista se espera el objeto de tipo oficinista
+     * @param actividad nombre de la actividad
+     * @param numUsuario  se espera el numero del usuario
+     * @param numSemana espera el número de la semana
+     * @param numHora espera la hora
+     * @param numDia espera el día
+     *
+     * */
     public static void verReservas(Oficinista oficinista, Actividades actividad,int numUsuario, int numSemana, int numHora, int numDia){
 
         List<Reserva> reservas = (List<Reserva>) FileManager.getInstance().loadFileList("reservas");

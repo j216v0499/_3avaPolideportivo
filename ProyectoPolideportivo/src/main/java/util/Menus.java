@@ -78,7 +78,7 @@ public class Menus {
 
         if ((ArrayList<Usuario>) FileManager.getInstance().loadFileList(FileManager.LISTA_USUARIOS) == null) {
 
-            System.out.println("Hace falta un usario para inicail la seccion");
+            System.out.println("Hace falta un usuario para inicial la sección");
 
         } else {
             usus1 = (ArrayList<Usuario>) FileManager.getInstance().loadFileList(FileManager.LISTA_USUARIOS);

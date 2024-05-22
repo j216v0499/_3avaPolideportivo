@@ -2,8 +2,10 @@ package model;
 
 import controller.Actividades;
 
-public class Reserva {
+import java.util.List;
 
+public class Reserva {
+    private static Reserva instance;
     private Actividades actividad;
     private int numSemana;
     private int numDia;
@@ -17,6 +19,33 @@ public class Reserva {
         this.numDia = numDia;
         this.numHora = numHora;
         this.numCliente = numCliente;
+    }
+
+    /**
+     * Obtiene la instancia única de la Reserva.
+     *
+     * La llamada inicial a este método debe proporcionar los parámetros necesarios.
+     * Las llamadas posteriores ignorarán los parámetros y devolverán la instancia existente.
+     *
+     * @param actividad La actividad que se reserva.
+     * @param numSemana La semana de la reserva.
+     * @param numDia El día de la reserva.
+     * @param numHora La hora de la reserva.
+     * @param numCliente Número del cliente para la reserva.
+     * @return La instancia única de Reserva.
+     */
+    public static synchronized Reserva getInstance(Actividades actividad, int numSemana, int numDia, int numHora, int numCliente) {
+        if (instance == null) {
+            instance = new Reserva(actividad, numSemana, numDia, numHora, numCliente);
+        }
+        return instance;
+    }
+
+    public static synchronized Reserva getInstance() {
+        if (instance == null) {
+            throw new IllegalStateException("Instancia no hecha ");
+        }
+        return instance;
     }
 
     public Reserva(){

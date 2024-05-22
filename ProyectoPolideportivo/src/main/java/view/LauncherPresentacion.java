@@ -1,5 +1,10 @@
 package view;
 
+import controller.Actividades;
+import controller.Oficinista;
+import controller.ParaOficinistas;
+import model.Usuario;
+import util.FileManager;
 import util.Menus;
 
 import java.util.Scanner;
@@ -30,13 +35,23 @@ public class LauncherPresentacion {
 
         if(iniciadoComoUser){
 
+            System.out.println("ususario");
+//
 //            ParaUsuarios.reservarYmostrar();
 //
 //            MostrarCalendario.mostrarCalendario();
 
         }
+
         if(iniciadoComoAdmi){
 
+            System.out.println("admin");
+
+
+            //    Para ofocinistas  appOficina(Scanner sc, Oficinista oficinista, Actividades actividad){
+            Actividades actividad = Actividades.FUTBOL;
+
+            ParaOficinistas.appOficina(sc,new Oficinista());
 //            ParaOficinistas.sancionarUsuario();
 //
 //            ParaOficinistas.verSancionarUsuario();

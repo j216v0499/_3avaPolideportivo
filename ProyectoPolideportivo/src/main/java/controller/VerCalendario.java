@@ -9,7 +9,13 @@ import static com.diogonunes.jcolor.Attribute.BLUE_TEXT;
 import static com.diogonunes.jcolor.Attribute.BRIGHT_BLUE_TEXT;
 
 public class VerCalendario {
-
+    /**
+     *  carga la aplicaccion movil
+     *
+     * @param sc se espera la entrada del usuario
+     *
+     *
+     */
     public static void verCalendario(Scanner sc){
 
         Actividades actividad = Actividades.FUTBOL;

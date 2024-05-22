@@ -35,9 +35,9 @@ Con
 
 Cosas ya hechas
     El modelo vista controlador, esta empezado de momento, asi sirve
-    FileManajer, ya tiene un Repository, es singleton y cumple solid y su javaDoc
+    FileManager, ya tiene un Repository, es singleton y cumple solid y su javaDoc
 
-falta rehacer las llamadas udando singletoon
+falta rehacer las llamadas usando singleton
 
     Se ha empezado a rehacer el mostrar calendario, dividiendolo en ficheros java pequeños
         CrearCalendario.java
@@ -88,6 +88,12 @@ falta rehacer las llamadas udando singletoon
 
 Se comienza ha hacer un main personalizado para lo que se supone que nuestro codigo debe de hacer
 
+
+
+
+
+Se hacen los singelton, se hacen lo jaavaha doc
+se hacen los metodo de leer y duardar usuarios /(funcionan mal )
 
 
 

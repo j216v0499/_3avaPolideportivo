@@ -10,6 +10,14 @@ import static com.diogonunes.jcolor.Ansi.colorize;
 import static com.diogonunes.jcolor.Attribute.*;
 
 public class MostrarCalendario {
+    /**
+     * Mostrar calendario
+     *
+     * @param numSemana entero para el numero de semanas
+     * @param actividad actividad para mostrar el calendario
+     *
+     * */
+
     public static void mostrarCalendario(int numSemana, Actividades actividad) {
         FileManager fileManager = FileManager.getInstance();
         Map<Actividades, List<Semana>> semanaActs = fileManager.loadFileMap("mapa");
