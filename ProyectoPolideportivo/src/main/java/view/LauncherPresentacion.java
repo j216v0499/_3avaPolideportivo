@@ -32,18 +32,18 @@ public class LauncherPresentacion {
 
         if(iniciadoComoUser){
 
-            ParaUsuarios.reservarYmostrar();
-
-            MostrarCalendario.mostrarCalendario();
+//            ParaUsuarios.reservarYmostrar();
+//
+//            MostrarCalendario.mostrarCalendario();
 
         }
         if(iniciadoComoAdmi){
 
-            ParaOficinistas.sancionarUsuario();
-
-            ParaOficinistas.verSancionarUsuario();
-
-            MostrarCalendario.mostrarCalendario();
+//            ParaOficinistas.sancionarUsuario();
+//
+//            ParaOficinistas.verSancionarUsuario();
+//
+//            MostrarCalendario.mostrarCalendario();
         }
     }
 }
