@@ -23,9 +23,26 @@ public class ParaUsuarios {
         if (res1.equals("n")) {
             Menus.menuAlta(sc, oficinista);
         }
-        while (!Menus.inicioSesionUsuarios(sc)){
-            System.out.println(colorize("inicio de sesion incorrecto", BLUE_TEXT()));
-        };
+
+        // Comprobamos si hay usuarios registrados
+        if (!Menus.inicioSesionUsuarios(sc)) {
+            System.out.println(colorize("No hay usuarios registrados.", BLUE_TEXT()));
+            return; // Salimos del método si no hay usuarios registrados
+        }
+
+        // Continuamos con el inicio de sesión
+        while (!Menus.inicioSesionUsuarios(sc)) {
+            System.out.println(colorize("Inicio de sesión incorrecto", BLUE_TEXT()));
+        }
+
+
+
+
+
+
+//        while (!Menus.inicioSesionUsuarios(sc)){
+//            System.out.println(colorize("inicio de sesion incorrecto", BLUE_TEXT()));
+//        };
         System.out.println(colorize("\nSesión iniciada", BLUE_TEXT()));
 
         String res2="";
@@ -37,7 +54,7 @@ public class ParaUsuarios {
             res2 = sc.next();
 
             if (res2.equals("3")){
-                MostrarCalendario.verCalendario(sc);
+                VerCalendario.verCalendario(sc);
             }
 
             if (!res2.equals("3") && !res2.equals("4")) {
@@ -81,13 +98,16 @@ public class ParaUsuarios {
                 int numHora = sc.nextInt();
 
                 if (res2.equals("1")) {
-                    reservarYmostrar(oficinista, actividad, "Reservado", FileManager.loadFile(FileManager.NUMERO_USUARIO), numSemana, numHora, numDia,(List<Reserva>) FileManager.loadFileList("reservas"));
+                    int numeroUsuario = (int) FileManager.getInstance().loadFile(FileManager.NUMERO_USUARIO);
+                    reservarYmostrar(oficinista, actividad, "Reservado", numeroUsuario, numSemana, numHora, numDia, (List<Reserva>) FileManager.getInstance().loadFileList("reservas"));
                 } else if (res2.equals("2")) {
-                    quitarYmostrar(oficinista, actividad, FileManager.loadFile(FileManager.NUMERO_USUARIO), numSemana, numHora, numDia);
+                    int numeroUsuario = (int) FileManager.getInstance().loadFile(FileManager.NUMERO_USUARIO);
+                    quitarYmostrar(oficinista, actividad, numeroUsuario, numSemana, numHora, numDia);
                 }
 
-                if (res2.equals("5")){
-                    verReservas(oficinista, actividad, FileManager.loadFile(FileManager.NUMERO_USUARIO), numSemana, numHora, numDia);
+                if (res2.equals("5")) {
+                    int numeroUsuario = (int) FileManager.getInstance().loadFile(FileManager.NUMERO_USUARIO);
+                    verReservas(oficinista, actividad, numeroUsuario, numSemana, numHora, numDia);
                 }
             }
         }while (!res2.equals("4"));
@@ -100,13 +120,13 @@ public class ParaUsuarios {
     }
 
     private static void quitarYmostrar(Oficinista oficinista,Actividades actividad, int numUser, int numSemana, int numHora, int numDia){
-        oficinista.quitarReserva(actividad, numUser,numSemana,numHora,numDia, (List<Reserva>) FileManager.loadFileList("reservas"));
+        oficinista.quitarReserva(actividad, numUser,numSemana,numHora,numDia, (List<Reserva>) FileManager.getInstance().loadFileList("reservas"));
         MostrarCalendario.mostrarCalendario(numSemana,actividad);
     }
 
     private static void verReservas(Oficinista oficinista, Actividades actividad,int numUsuario, int numSemana, int numHora, int numDia){
 
-        List<Reserva> reservas = (List<Reserva>) FileManager.loadFileList("reservas");
+        List<Reserva> reservas = (List<Reserva>) FileManager.getInstance().loadFileList("reservas");
 
         int cont = 0;
         for (Reserva reserva : reservas){
@@ -120,7 +140,7 @@ public class ParaUsuarios {
         for (Actividades actividades : Actividades.values()){
             semanaActs.put(actividades,SEMANAS);
         }
-        FileManager.saveFileMap("mapa", semanaActs);
+        FileManager.getInstance().saveFileMap("mapa", semanaActs);
 
     }
 

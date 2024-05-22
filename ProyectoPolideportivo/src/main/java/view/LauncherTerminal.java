@@ -3,45 +3,59 @@ import controller.*;
 import model.Reserva;
 import model.Semana;
 import util.FileManager;
-import view.Menus;
 
 import java.util.*;
 import java.util.List;
 
-import static com.diogonunes.jcolor.Ansi.colorize;
 
 public class LauncherTerminal {
-    public static void lanzador() {
+
+        public static void lanzador() {
+            Scanner sc = new Scanner(System.in);
+
+            // Creación de oficinista y mapa de actividades
+            Oficinista oficinista = new Oficinista();
+            Map<Actividades, List<Semana>> semanaActs = new HashMap<>();
 
 
-        Scanner sc = new Scanner(System.in);
-        //actividades
-        int numAct = 0;
-        Actividades actividad = Actividades.FUTBOL;
-        //controller.Oficinista
-        Oficinista oficinista = new Oficinista(); //cramos una oficinista
 
-        Map<Actividades, List<Semana>> semanaActs = new HashMap<>();  //creamos un mapa de actividades
+            // Definir y asignar un valor a actividad
+            Actividades actividad = Actividades.FUTBOL; // O cualquier otro valor que sea adecuado para tu aplicación
 
-        if (util.FileManager.loadFileMap("mapa") == null)
-            ParaUsuarios.rellenarActividades(MostrarCalendario.calendario(), semanaActs);
-
-        if (FileManager.loadFileMap("reservas") == null) {
-            List<Reserva> reservas = new ArrayList<>();
-            FileManager.saveFileList("reservas", reservas);
+            // Manejo del menú inicial
+            LauncherTerminal.manejarMenuInicial(sc, oficinista, semanaActs, actividad);
         }
-        boolean opcionCorrecta =false;
-        while (!(opcionCorrecta)) {
-            if (Menus.menuInicial().equals("1")) {
-                opcionCorrecta=true;
-                ParaUsuarios.appMovil(sc, oficinista, actividad);
 
-            } else if (Menus.menuInicial().equals("2")) {
-                opcionCorrecta=true;
-                ParaOficinistas.appOficina(sc, oficinista, actividad);
+        private void cargarArchivos(Map<Actividades, List<Semana>> semanaActs) {
+            if (FileManager.getInstance().loadFileMap("mapa") == null) {
+                ParaUsuarios.rellenarActividades(CrearCalendario.calendario(), semanaActs);
+            }
+
+            if (FileManager.getInstance().loadFileMap("reservas") == null) {
+                List<Reserva> reservas = new ArrayList<>();
+                FileManager.getInstance().saveFileList("reservas", reservas);
             }
         }
 
-
+    private static void manejarMenuInicial(Scanner sc, Oficinista oficinista, Map<Actividades, List<Semana>> semanaActs, Actividades actividad) {
+        boolean opcionCorrecta = false;
+        while (!opcionCorrecta) {
+            String opcion = Menus.menuInicial();
+            switch (opcion) {
+                case "1":
+                    opcionCorrecta = true;
+                    ParaUsuarios.appMovil(sc, oficinista, actividad);
+                    break;
+                case "2":
+                    opcionCorrecta = true;
+                    ParaOficinistas.appOficina(sc, oficinista, actividad);
+                    break;
+                default:
+                    System.out.println("Opción inválida. Por favor, seleccione de nuevo.");
+            }
+        }
     }
+
 }
+
+

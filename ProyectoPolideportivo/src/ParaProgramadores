@@ -36,3 +36,58 @@ Con
 Cosas ya hechas
     El modelo vista controlador, esta empezado de momento, asi sirve
     FileManajer, ya tiene un Repository, es singleton y cumple solid y su javaDoc
+
+falta rehacer las llamadas udando singletoon
+
+    Se ha empezado a rehacer el mostrar calendario, dividiendolo en ficheros java pequeños
+        CrearCalendario.java
+        MostrarCalendario.java
+                      if (semanaActs.get(actividad).get(numSemana).getDias().get(j).getHora().get(i).getCliente().get(i).getNombre().equals("Reservado")) {
+                                    System.out.print(colorize(semanaActs.get(actividad).get(numSemana).getDias().get(j).getHora().get(i).getCliente().get(i).getNombre(), RED_BACK()));
+                                }
+
+                                if (semanaActs.get(actividad).get(numSemana).getDias().get(j).getHora().get(i).getCliente().get(i).getNombre().equals("Disponible")) {
+                                    System.out.print(colorize(semanaActs.get(actividad).get(numSemana).getDias().get(j).getHora().get(i).getCliente().get(i <<<aqui>>>).getNombre(), GREEN_BACK(), BLACK_TEXT()));
+                                }
+
+
+            Estas linias han dado problemas y se han tenido que modificar
+        VerCalendario.java
+
+
+
+    Como se ha tocado el filemanager todas las llamadas a este java estaban fallanado
+        entonces se han tenido que arregalar antes de poder verificar lo de calendario
+
+
+    Ya se ha arreglado todas la llamadas a filemanager, ademas, se ha provocado el error de fichero vacio
+        Error al leer el archivo. controller.Usuario
+        Exception in thread "main" java.lang.NullPointerException: Cannot invoke "java.util.ArrayList.iterator()" because "usus1" is null
+            at view.Menus.inicioSesionUsuarios(Menus.java:81)
+            at controller.ParaUsuarios.appMovil(ParaUsuarios.java:26)
+            at view.LauncherTerminal.manejarMenuInicial(LauncherTerminal.java:47)
+            at view.LauncherTerminal.lanzador(LauncherTerminal.java:26)
+            at view.Main.main(Main.java:11)
+
+
+
+             // Comprobamos si hay usuarios registrados
+                if (!Menus.inicioSesionUsuarios(sc)) {
+                    System.out.println(colorize("No hay usuarios registrados.", BLUE_TEXT()));
+                    return; // Salimos del método si no hay usuarios registrados
+                }
+
+                // Continuamos con el inicio de sesión
+                while (!Menus.inicioSesionUsuarios(sc)) {
+                    System.out.println(colorize("Inicio de sesión incorrecto", BLUE_TEXT()));
+                }
+
+             con este fragmento de codigo, parece que se ha solucionado los errores de codigo
+
+
+
+
+
+
+
+

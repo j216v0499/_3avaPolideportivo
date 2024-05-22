@@ -125,7 +125,7 @@ public class ParaOficinistas {
     }
 
     public static void buscarSancionarUsuario(String dni){
-        List<Reserva> reservas = (List<Reserva>) FileManager.loadFileList("reservas");
+        List<Reserva> reservas = (List<Reserva>) FileManager.getInstance().loadFileList("reservas");
 
 
         for (Reserva reserva : reservas){
@@ -137,13 +137,13 @@ public class ParaOficinistas {
 
 
     public static void quitarYmostrar(Oficinista oficinista,Actividades actividad, int numUser, int numSemana, int numHora, int numDia){
-        oficinista.quitarReserva(actividad, numUser,numSemana,numHora,numDia, (List<Reserva>) FileManager.loadFileList("reservas"));
+        oficinista.quitarReserva(actividad, numUser,numSemana,numHora,numDia, (List<Reserva>) FileManager.getInstance().loadFileList("reservas"));
         MostrarCalendario.mostrarCalendario(numSemana,actividad);
     }
 
     public static void verReservas(Oficinista oficinista, Actividades actividad,int numUsuario, int numSemana, int numHora, int numDia){
 
-        List<Reserva> reservas = (List<Reserva>) FileManager.loadFileList("reservas");
+        List<Reserva> reservas = (List<Reserva>) FileManager.getInstance().loadFileList("reservas");
 
         int cont = 0;
         for (Reserva reserva : reservas){
