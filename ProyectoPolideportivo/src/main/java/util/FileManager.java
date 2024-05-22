@@ -4,7 +4,12 @@ import java.io.*;
 import java.util.List;
 import java.util.Map;
 
-public class FileManager<T> {
+/**
+ * Singleton para la manipulacion de archivos.
+ *
+ * @param <T> tipo de objeto
+ */
+public class FileManager<T> implements FileManagerRepository<T> {
 
     public static final String LISTA_USUARIOS = "listausu";
     public static final String NUMERO_USUARIO = "numUser";
@@ -16,124 +21,141 @@ public class FileManager<T> {
     public static final String CAL_YOGA = "YOGA";
     public static final String CAL_SPINNING = "SPINNING";
 
+    private static FileManager instance;
 
+    private FileManager() {}
 
-    public static <T> void saveFile(String fileName, T object){
+    /**
+     * Gets the single instance of FileManager.
+     *
+     * @return single instance of FileManager
+     */
+    public static synchronized FileManager getInstance() {
+        if (instance == null) {
+            instance = new FileManager();
+        }
+        return instance;
+    }
+
+    /**
+     * Saves an object to a file.
+     *
+     * @param fileName the name of the file
+     * @param object the object to save
+     */
+    @Override
+    public void saveFile(String fileName, T object) {
         File file = new File(fileName);
-        try {
-            FileOutputStream fos = new FileOutputStream(file);
-            ObjectOutputStream escribir = new ObjectOutputStream(fos);
+        try (FileOutputStream fos = new FileOutputStream(file);
+             ObjectOutputStream escribir = new ObjectOutputStream(fos)) {
 
             escribir.writeObject(object);
 
-            escribir.close();
-            fos.close();
-
         } catch (Exception e) {
-            System.out.println("Error al escribir en el archivo. "
-                    + e.getMessage());
+            System.out.println("Error al escribir en el archivo. " + e.getMessage());
         }
     }
 
-    public static <T> T loadFile(String fileName){
+    /**
+     * Loads an object from a file.
+     *
+     * @param fileName the name of the file
+     * @return the loaded object
+     */
+    @Override
+    public T loadFile(String fileName) {
         File file = new File(fileName);
         T object = null;
-        try {
+        try (FileInputStream fis = new FileInputStream(file);
+             ObjectInputStream reader = new ObjectInputStream(fis)) {
 
-            FileInputStream fis = new FileInputStream(file);
-            ObjectInputStream reader;
-
-            while(fis.available()>0){
-                reader= new ObjectInputStream(fis);
-                T element= (T) reader.readObject();
-                object = element;
-            }
+            object = (T) reader.readObject();
 
         } catch (Exception e) {
-            System.out.println("Error al leer el archivo. "
-                    + e.getMessage());
+            System.out.println("Error al leer el archivo. " + e.getMessage());
         }
         return object;
     }
 
-
-    public static void saveFileList(String fileName, List<?> objects){
+    /**
+     * Saves a list of objects to a file.
+     *
+     * @param fileName the name of the file
+     * @param objects the list of objects to save
+     */
+    @Override
+    public void saveFileList(String fileName, List<?> objects) {
         File file = new File(fileName);
-        try {
-            FileOutputStream fos = new FileOutputStream(file);
-            ObjectOutputStream escribir = new ObjectOutputStream(fos);
+        try (FileOutputStream fos = new FileOutputStream(file);
+             ObjectOutputStream escribir = new ObjectOutputStream(fos)) {
 
             escribir.writeObject(objects);
 
-            escribir.close();
-            fos.close();
-
         } catch (Exception e) {
-            System.out.println("Error al escribir en el archivo. "
-                    + e.getMessage());
+            System.out.println("Error al escribir en el archivo. " + e.getMessage());
         }
     }
 
-
-    public static <T> List<?> loadFileList(String fileName){
+    /**
+     * Loads a list of objects from a file.
+     *
+     * @param fileName the name of the file
+     * @return the loaded list of objects
+     */
+    @Override
+    public List<T> loadFileList(String fileName) {
         File file = new File(fileName);
         List<T> list = null;
-        try {
+        try (FileInputStream fis = new FileInputStream(file);
+             ObjectInputStream reader = new ObjectInputStream(fis)) {
 
-            FileInputStream fis = new FileInputStream(file);
-            ObjectInputStream reader;
-
-            while(fis.available()>0){
-                reader= new ObjectInputStream(fis);
-                List<T> element= (List<T>) reader.readObject();
-                list = element;
-            }
+            list = (List<T>) reader.readObject();
 
         } catch (Exception e) {
-            System.out.println("Error al leer el archivo. "
-                    + e.getMessage());
+            System.out.println("Error al leer el archivo. " + e.getMessage());
         }
         return list;
     }
 
-
-    public static void saveFileMap(String fileName, Map objects){
+    /**
+     * Saves a map of objects to a file.
+     *
+     * @param fileName the name of the file
+     * @param objects the map of objects to save
+     */
+    @Override
+    public void saveFileMap(String fileName, Map<?, ?> objects) {
         File file = new File(fileName);
-        try {
-            FileOutputStream fos = new FileOutputStream(file);
-            ObjectOutputStream escribir = new ObjectOutputStream(fos);
+        try (FileOutputStream fos = new FileOutputStream(file);
+             ObjectOutputStream escribir = new ObjectOutputStream(fos)) {
 
             escribir.writeObject(objects);
 
-            escribir.close();
-            fos.close();
-
         } catch (Exception e) {
-            System.out.println("Error al escribir en el archivo. "
-                    + e.getMessage());
+            System.out.println("Error al escribir en el archivo. " + e.getMessage());
         }
     }
 
-    public static <T> Map loadFileMap(String fileName){
+    /**
+     * Loads a map of objects from a file.
+     *
+     * @param fileName the name of the file
+     * @return the loaded map of objects
+     */
+    @Override
+    public Map<?, ?> loadFileMap(String fileName) {
         File file = new File(fileName);
-        Map map = null;
-        try {
+        Map<?, ?> map = null;
+        try (FileInputStream fis = new FileInputStream(file);
+             ObjectInputStream reader = new ObjectInputStream(fis)) {
 
-            FileInputStream fis = new FileInputStream(file);
-            ObjectInputStream reader;
-
-            while(fis.available()>0){
-                reader= new ObjectInputStream(fis);
-                Map element= (Map) reader.readObject();
-                map = element;
-            }
+            map = (Map<?, ?>) reader.readObject();
 
         } catch (Exception e) {
-            System.out.println("Error al leer el archivo. "
-                    + e.getMessage());
+            System.out.println("Error al leer el archivo. " + e.getMessage());
         }
         return map;
     }
-
-
 }
+
+
