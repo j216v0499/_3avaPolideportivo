@@ -22,6 +22,16 @@ public class Usuario extends Writable {
         this.sancion = null;
 
     }
+
+    /**
+     * Constructor para usuario
+     *
+     * @param DNI se espera el dni
+     * @param nombre nombre del ususuario
+     * @param pass contraseña
+     *
+     * */
+
     public Usuario(String nombre, String pass,String DNI) {
         this.DNI = DNI;
         this.nombre = nombre;
@@ -32,19 +42,16 @@ public class Usuario extends Writable {
 
     }
 
-    // Constructor copia
-
-    public Usuario(Usuario usuario) {
-        this.nombre = usuario.getDNI();
-        this.pass = usuario.getPass();
-        this.esAdmin = usuario.esAdmin;
-        this.estaSancionado= usuario.estaSancionado;
-        this.sancion = usuario.sancion;
-
-    }
-
-
-
+    /**
+     * Constructor para usuario
+     *
+     * @param DNI se espera el dni
+     * @param nombre nombre del usuario
+     * @param pass contraseña
+     * @param sancion sanicion directa al usuario
+     * @param esAdmin bolean por sii fuera admin
+     *
+     * */
     public Usuario(String nombre, String pass,String DNI,Boolean esAdmin,String sancion ) {
         this.DNI = DNI;
         this.nombre = nombre;
@@ -55,20 +62,29 @@ public class Usuario extends Writable {
 
     }
 
+    /**
+     * Constructor copia
+     *
+     * */
+    public Usuario(Usuario usuario) {
+        this.nombre = usuario.getDNI();
+        this.pass = usuario.getPass();
+        this.esAdmin = usuario.esAdmin;
+        this.estaSancionado= usuario.estaSancionado;
+        this.sancion = usuario.sancion;
 
-//    public Usuario(String nombre, String pass,String DNI) {
-//        this.DNI = DNI;
-//        this.nombre = nombre;
-//        this.pass = pass;
-//        this.esAdmin = false;
-//        this.estaSancionado=false;
-//
-//    }
-
+    }
+    /**
+     * Devuelve el nombre
+     * */
 
     public String getNombre() {
         return nombre;
     }
+
+    /**
+     * Introduce el nombre
+     * */
 
     public void setNombre(String nombre) {
         this.nombre = nombre;

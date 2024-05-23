@@ -8,13 +8,12 @@ import java.util.List;
 
 public class Dia extends Writable {
 
-
     private static Dia instance;
 
     private String diaSemana;
     private List<Hora> hora;
 
-    public Dia(String diaSemana) {
+    private Dia(String diaSemana) {
         this.hora = new ArrayList<>();
         this.diaSemana = diaSemana;
     }
@@ -34,6 +33,11 @@ public class Dia extends Writable {
         return instance;
     }
 
+    /**
+     * Creación de la instancia unica
+     *
+     * @return instacia singletion
+     * */
     public static synchronized Dia getInstance() {
         if (instance == null) {
             throw new IllegalStateException("Instancia no hecha ");
@@ -41,7 +45,7 @@ public class Dia extends Writable {
         return instance;
     }
 
-    public Dia() {
+    private Dia() {
 
     }
 

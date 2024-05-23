@@ -10,7 +10,7 @@ import static com.diogonunes.jcolor.Attribute.BRIGHT_BLUE_TEXT;
 
 public class VerCalendario {
     /**
-     *  carga la aplicaccion movil
+     * Se carga la aplicaccion movil
      *
      * @param sc se espera la entrada del usuario
      *

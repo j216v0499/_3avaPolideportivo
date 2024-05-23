@@ -13,6 +13,7 @@ public class Reserva {
     private int numCliente;
 
 
+    //Aqui haria falta hacer el singelton
     public Reserva(Actividades actividad, int numSemana, int numDia, int numHora, int numCliente) {
         this.actividad = actividad;
         this.numSemana = numSemana;

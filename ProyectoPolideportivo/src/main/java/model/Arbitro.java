@@ -1,7 +1,5 @@
 package model;
 
-import model.Trabajadores;
-
 public class Arbitro extends Trabajadores {
 
     private static Arbitro instance;

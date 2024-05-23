@@ -13,7 +13,7 @@ public class MostrarCalendario {
     /**
      * Mostrar calendario
      *
-     * @param numSemana entero para el numero de semanas
+     * @param numSemana entero para el número de semanas
      * @param actividad actividad para mostrar el calendario
      *
      * */

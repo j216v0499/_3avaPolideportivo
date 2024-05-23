@@ -14,11 +14,9 @@ public class CrearCalendario {
 
     /**
      *
-     *
      * @return List<Semana> se espera una lista de semanas
      *
      * */
-
 
     public static List<Semana> calendario(){
 
@@ -36,9 +34,7 @@ public class CrearCalendario {
         //Array de usuarios
         ArrayList<Usuario> usuarios = new ArrayList<Usuario>();
 
-
-
-        //bucle para generar fechas y rellenar la lista
+        //Bucle para generar fechas y rellenar la lista
         for (LocalDate date: dates){
 
             //Introducción de dias en semana
@@ -55,8 +51,8 @@ public class CrearCalendario {
                     usuarios.add(usuario);
 
                     Hora hora = new Hora("00:00",usuarios,trabajador);
-
-//                    hora.SetCliente(usuario).add(usuario); //TODO get mal funcionamiento
+//                    TODO get mal funcionamiento, es metodo de las reservas ya se encargara
+//                    hora.SetCliente(usuario).add(usuario);
 //                    hora.setTrabajador(trabajador);
 //                    hora.setFormato("00:00");
 //                    dia.getHora().add(hora);

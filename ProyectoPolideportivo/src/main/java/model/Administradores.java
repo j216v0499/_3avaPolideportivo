@@ -1,8 +1,5 @@
 package model;
 
-import model.Trabajadores;
-import util.FileManager;
-
 public class Administradores extends Trabajadores {
 
     private static Administradores instance;
@@ -36,8 +33,4 @@ public class Administradores extends Trabajadores {
         }
         return instance;
     }
-
-
-
-
 }
