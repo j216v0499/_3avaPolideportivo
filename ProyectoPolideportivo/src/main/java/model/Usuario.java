@@ -32,6 +32,19 @@ public class Usuario extends Writable {
 
     }
 
+    // Constructor copia
+
+    public Usuario(Usuario usuario) {
+        this.nombre = usuario.getDNI();
+        this.pass = usuario.getPass();
+        this.esAdmin = usuario.esAdmin;
+        this.estaSancionado= usuario.estaSancionado;
+        this.sancion = usuario.sancion;
+
+    }
+
+
+
     public Usuario(String nombre, String pass,String DNI,Boolean esAdmin,String sancion ) {
         this.DNI = DNI;
         this.nombre = nombre;
@@ -96,7 +109,12 @@ public class Usuario extends Writable {
     }
 
     public void setSancion(String sancion) {
-        this.sancion = sancion;
+        if(this.sancion!=null) {
+            this.sancion += " " + sancion;
+            this.estaSancionado = true;
+        }else{
+            this.sancion=sancion;
+        }
     }
 
 

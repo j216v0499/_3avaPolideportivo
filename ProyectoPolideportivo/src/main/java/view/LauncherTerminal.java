@@ -18,23 +18,12 @@ public class LauncherTerminal {
         Map<Actividades, List<Semana>> semanaActs = new HashMap<>();
 
         // Definir y asignar un valor a actividad
-        Actividades actividad = Actividades.FUTBOL;
+        //Actividades actividad = Actividades.FUTBOL;
 
         // Manejo del menú inicial
         LauncherTerminal.manejarMenuInicial(sc, oficinista, semanaActs);
         //LauncherTerminal.manejarMenuInicial(sc, oficinista, semanaActs);
 
-    }
-
-    private void cargarArchivos(Map<Actividades, List<Semana>> semanaActs) {
-        if (FileManager.getInstance().loadFileMap("mapa") == null) {
-            //TODO --> ParaUsuarios.rellenarActividades(CrearCalendario.calendario(), semanaActs);
-        }
-
-        if (FileManager.getInstance().loadFileMap("reservas") == null) {
-            List<Reserva> reservas = new ArrayList<>();
-            FileManager.getInstance().saveFileList("reservas", reservas);
-        }
     }
 
     private static void manejarMenuInicial(Scanner sc, Oficinista oficinista, Map<Actividades, List<Semana>> semanaActs) {

@@ -29,45 +29,23 @@ public class Menus {
     }
 
     public static void menuAlta(Scanner sc, Oficinista oficinista) {
-        System.out.print(colorize("\nSi eres admin, pon tu contraseña : ", BRIGHT_RED_TEXT()));
-        int paswd = sc.nextInt();
-
-        if (paswd == PASWORD) {
 
             System.out.print(colorize("\nNombre de usuario: ", BRIGHT_RED_TEXT()));
             String nomUser = sc.next();
             System.out.print(colorize("\nIntroduce tu DNI para identificarte: ", BRIGHT_RED_TEXT()));
             String DNI = sc.next();
-            System.out.print(colorize("\nEl usuario va ha ser admin? (true o false) : ", BRIGHT_RED_TEXT()));
-            boolean esAdmin = sc.nextBoolean();
+//            System.out.print(colorize("\nEl usuario va ha ser admin? (true o false) : ", BRIGHT_RED_TEXT()));
+//            boolean esAdmin = sc.nextBoolean();
             System.out.print(colorize("\nAsignar contraseña: ", BRIGHT_RED_TEXT()));
             String pass = sc.next();
 
-            Usuario usuario = new Usuario(nomUser, pass, DNI, esAdmin);
-
-
-            List<Usuario> usuarios1 = (List<Usuario>) FileManager.getInstance().loadFileList(FileManager.LISTA_USUARIOS);
-            oficinista.darAlta(nomUser, pass, DNI, usuarios1, usuario);
-            System.out.print(colorize("\nmodel.Usuario dado de Alta\n ", BRIGHT_RED_TEXT()));
-        } else if (paswd != 33) {
-
-
-            System.out.print(colorize("\nNombre de usuario: ", BRIGHT_RED_TEXT()));
-            String nomUser = sc.next();
-            System.out.print(colorize("\nIntroduce tu DNI para identificarte: ", BRIGHT_RED_TEXT()));
-            String DNI = sc.next();
-            System.out.print(colorize("\nAsignar contraseña: ", BRIGHT_RED_TEXT()));
-            String pass = sc.next();
-
-            boolean esAdmin = false;
-            Usuario usuario = new Usuario(nomUser, pass, DNI, esAdmin);
-
+            Usuario usuario = new Usuario(nomUser, pass, DNI);
 
             List<Usuario> usuarios1 = (List<Usuario>) FileManager.getInstance().loadFileList(FileManager.LISTA_USUARIOS);
-            oficinista.darAlta(nomUser, pass, DNI, usuarios1, usuario);
+            oficinista.darAlta(usuarios1, usuario);
             System.out.print(colorize("\nmodel.Usuario dado de Alta\n ", BRIGHT_RED_TEXT()));
 
-        }
+
     }
 
 

@@ -29,6 +29,7 @@ public class ParaOficinistas {
         String res1=sc.next();
         if (res1.equals("n")) {
             Menus.menuAlta(sc, oficinista);
+            ParaOficinistas.appOficina(sc,oficinista);
         }else {
             while (!Menus.inicioSesionOficina(sc)) {
                 System.out.println(colorize("inicio de sesion incorrecto", BLUE_TEXT()));
@@ -49,6 +50,7 @@ public class ParaOficinistas {
 
                 if (res2.equals("1")) {
                     System.out.println("que usuario quieres sancionar ?");
+                    sc.nextLine();
                     System.out.println("Dni -->");
                     String dni = sc.nextLine();
                     System.out.println("Sancion :");
@@ -128,27 +130,53 @@ public class ParaOficinistas {
      * Anadir el usuario y su sancion a un archivo de sanciones
      *
      * */
-    public static void sancionarUsuario(String dni,String sancion){
+//    public static void sancionarUsuario(String dni,String sancion){
+//
+//        List<Usuario> usuarios1 = (List<Usuario>) FileManager.getInstance().loadFileList(FileManager.LISTA_USUARIOS);
+//
+//        //List<Usuario> baneados = (List<Usuario>) FileManager.getInstance().loadFileList(FileManager.LISTA_USUARIOS_BAN);
+//
+//        for (Usuario usuario : usuarios1) {
+//
+//            if(usuario.getDNI().equals(dni)) {
+//                Usuario usrtempo = new Usuario(usuario);
+//                usuarios1.remove(usuario);
+//                usrtempo.setSancion("sancion");
+//                usuarios1.add(usrtempo);
+//
+//                FileManager.getInstance().saveFileList(FileManager.LISTA_USUARIOS, usuarios1);
+//
+//            }
+//        }
+//
+//        System.out.print(colorize("\nSancionarUsuario, se ha terminado el metodo \n ", BRIGHT_RED_TEXT()));
+//
+//    }
 
-        List<Usuario> usuarios1 = (List<Usuario>) FileManager.getInstance().loadFileList(FileManager.LISTA_USUARIOS);
+    public static void sancionarUsuario(String dni, String sancion) {
+        List<Usuario> listaUsuarios = (List<Usuario>) FileManager.getInstance().loadFileList(FileManager.LISTA_USUARIOS);
 
-        //List<Usuario> baneados = (List<Usuario>) FileManager.getInstance().loadFileList(FileManager.LISTA_USUARIOS_BAN);
+        boolean usuarioEncontrado = false;
 
-        for (Usuario usuario : usuarios1) {
+        for (Usuario usuario : listaUsuarios) {
+            if (usuario.getDNI().equals(dni)) {
 
-            if(usuario.getDNI().equals(dni)) {
+                usuario.setSancion(sancion);  // Set the sanction directly on the user object
 
-                usuario.setSancion("sancion");
-                usuarios1.add(usuario);
-
-                FileManager.getInstance().saveFileList(FileManager.LISTA_USUARIOS_BAN, usuarios1);
-
+                usuarioEncontrado = true;
+                break;  // Exit the loop once the user is found and sanctioned
             }
         }
 
-        System.out.print(colorize("\nSancionarUsuario, se ha terminado el metodo \n ", BRIGHT_RED_TEXT()));
+        if (usuarioEncontrado) {
+            FileManager.getInstance().saveFileList(FileManager.LISTA_USUARIOS, listaUsuarios);
+        } else {
+            System.out.print(colorize("\nUsuario con DNI " + dni + " no encontrado.\n", BRIGHT_RED_TEXT()));
+        }
 
+        System.out.print(colorize("\nSancionarUsuario, se ha terminado el metodo \n", BRIGHT_RED_TEXT()));
     }
+
     public static void darSancion(List<Usuario> usuarios1, Usuario usuario){
 
         //guardar al cliente en lista con filemanager

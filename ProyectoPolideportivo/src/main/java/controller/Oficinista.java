@@ -19,15 +19,12 @@ public class Oficinista extends Trabajadores{
     }
 
     /**
-     *  se espera dar de alta un usuario
-     *
-     * @param nomCliente nombre del cliente
-     * @param passwdCliente contraseña cliente
-     * @param DNI dni del cliente
+     *  se espera dar de alta un usuariO
+     *  Ç
      * @param usuario se espera el acceso del usuario
      * @param usuarios1 lista de usuarios
      * */
-    public void darAlta(String nomCliente, String passwdCliente, String DNI, List<Usuario> usuarios1, Usuario usuario){
+    public void darAlta( List<Usuario> usuarios1, Usuario usuario){
 
         //guardar al cliente en lista con filemanager
         if (usuarios1==null)
