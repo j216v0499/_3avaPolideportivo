@@ -28,3 +28,9 @@ Sigo corrigiendo exámenes. En cuanto al proyecto, tres cosillas:
 El main se arreglas y se cambia el acceso al main, a un acceso statico
 
 Se elimina el java ParaUsuarios y se mete su codigo en el ViewPolideportivoTerminal
+
+Se reajusta el uso del singleton en los diferentes objetos
+    se quita el singleton de ;
+        hora   y se cambia su ubicación a dao
+        dia    y se cambia su ubicación a dao
+        semana y se cambia su ubicación a dao

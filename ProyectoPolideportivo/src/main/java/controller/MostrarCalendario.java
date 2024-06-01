@@ -1,5 +1,6 @@
 package controller;
 
+import dao.Semana;
 import model.*;
 import util.FileManager;
 
@@ -24,7 +25,7 @@ public class MostrarCalendario {
         List<Usuario> usuarios = fileManager.loadFileList(FileManager.NUMERO_USUARIO);
 
         System.out.println(colorize("\n*------------------------------------------------------------------------------------------------------------------------*"));
-        System.out.println(colorize("    model.Semana (" + numSemana + ") " + semanaActs.get(actividad).get(numSemana).getInicio().toString() + " - " + actividad.toString()));
+        System.out.println(colorize("    dao.Semana (" + numSemana + ") " + semanaActs.get(actividad).get(numSemana).getInicio().toString() + " - " + actividad.toString()));
         System.out.println(colorize("*------------------------------------------------------------------------------------------------------------------------*"));
         System.out.println(colorize("    Horario               Lunes            Martes        Miércoles          Jueves          Viernes  "));
         System.out.println(colorize("*------------------------------------------------------------------------------------------------------------------------*"));

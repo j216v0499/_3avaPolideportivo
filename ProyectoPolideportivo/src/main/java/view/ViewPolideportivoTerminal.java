@@ -1,7 +1,7 @@
 package view;
 
 import controller.*;
-import model.Semana;
+import dao.Semana;
 import util.Menus;
 
 import java.util.*;

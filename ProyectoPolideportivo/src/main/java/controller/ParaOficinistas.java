@@ -81,17 +81,17 @@ public class ParaOficinistas {
 //                int numAct = sc.nextInt();
 //                actividad = Menus.eleccionActividad(actividad, numAct);
 //
-//                //model.Semana
+//                //dao.Semana
 //                System.out.println(colorize("\n¿En que semana quieres situarte? (0-51)", BLUE_TEXT()));
 //                System.out.print(colorize("--> ", BRIGHT_BLUE_TEXT()));
 //                int numSemana = sc.nextInt();
 //
-//                //model.Dia
+//                //dao.Dia
 //                System.out.println(colorize("\n¿Que dia quieres quitar / ver reserva? (0-4)", BLUE_TEXT()));
 //                System.out.print(colorize("--> ", BRIGHT_BLUE_TEXT()));
 //                int numDia = sc.nextInt();
 //
-//                //model.Hora
+//                //dao.Hora
 //                int cont2 = 8;
 //                System.out.println(colorize("\n¿A que hora?", BLUE_TEXT()));
 //                for (int i = 0; i < 10; i++) {

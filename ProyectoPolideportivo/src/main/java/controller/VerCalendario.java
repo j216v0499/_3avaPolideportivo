@@ -30,7 +30,7 @@ public class VerCalendario {
         int numAct = sc.nextInt();
         actividad =  Menus.eleccionActividad(actividad, numAct);
 
-        System.out.println(colorize("\n¿model.Semana? (0-51)", BLUE_TEXT()));
+        System.out.println(colorize("\n¿dao.Semana? (0-51)", BLUE_TEXT()));
         System.out.print(colorize("--> ",BRIGHT_BLUE_TEXT()));
         int numSemana = sc.nextInt();
 

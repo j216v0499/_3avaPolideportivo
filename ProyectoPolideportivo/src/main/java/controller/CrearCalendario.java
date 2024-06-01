@@ -1,5 +1,8 @@
 package controller;
 
+import dao.Dia;
+import dao.Hora;
+import dao.Semana;
 import model.*;
 
 import java.time.DayOfWeek;
@@ -44,7 +47,7 @@ public class CrearCalendario {
 
                 //Introducción de horas en dias trabajadores y clientes en horas
                 for (int i = 0; i<10;i++) {
-                    //public model.Hora(String formato, List<model.Usuario> cliente, model.Trabajadores trabajador) {
+                    //public dao.Hora(String formato, List<model.Usuario> cliente, model.Trabajadores trabajador) {
                     Usuario usuario = new Usuario("Disponible","pass",null,null);
                     Trabajadores trabajador = new Trabajadores("Nombre","pass",null);
 

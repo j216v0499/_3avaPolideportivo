@@ -13,11 +13,9 @@ import static com.diogonunes.jcolor.Ansi.colorize;
 import static com.diogonunes.jcolor.Attribute.*;
 
 public class Menus {
-    private static final int PASWORD = 33;
 
     public static String menuInicial() {
         Scanner sc = new Scanner(System.in);
-
 
         System.out.println(colorize("\nＰＯＬＩＤＥＰＯＲＴＩＶＯ", BRIGHT_BLUE_TEXT()));
 
