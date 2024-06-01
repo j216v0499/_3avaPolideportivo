@@ -65,9 +65,9 @@ falta rehacer las llamadas usando singleton
         Exception in thread "main" java.lang.NullPointerException: Cannot invoke "java.util.ArrayList.iterator()" because "usus1" is null
             at util.Menus.inicioSesionUsuarios(Menus.java:81)
             at controller.ParaUsuarios.appMovil(ParaUsuarios.java:26)
-            at view.LauncherTerminal.manejarMenuInicial(LauncherTerminal.java:47)
-            at view.LauncherTerminal.lanzador(LauncherTerminal.java:26)
-            at view.Main.main(Main.java:11)
+            at view.ViewPolideportivoTerminal.manejarMenuInicial(LauncherTerminal.java:47)
+            at view.ViewPolideportivoTerminal.lanzador(LauncherTerminal.java:26)
+            at Main.main(Main.java:11)
 
 
 

@@ -1,17 +1,15 @@
 package view;
 
 import controller.*;
-import model.Reserva;
 import model.Semana;
-import util.FileManager;
 import util.Menus;
 
 import java.util.*;
 
 
-public class LauncherTerminal {
+public class ViewPolideportivoTerminal {
 
-    public static void lanzador() {
+    public void lanzador() {
         Scanner sc = new Scanner(System.in);
         // Creación de oficinista y mapa de actividades
         Oficinista oficinista = new Oficinista();
@@ -21,12 +19,12 @@ public class LauncherTerminal {
         //Actividades actividad = Actividades.FUTBOL;
 
         // Manejo del menú inicial
-        LauncherTerminal.manejarMenuInicial(sc, oficinista, semanaActs);
+        manejarMenuInicial(sc, oficinista, semanaActs);
         //LauncherTerminal.manejarMenuInicial(sc, oficinista, semanaActs);
 
     }
 
-    private static void manejarMenuInicial(Scanner sc, Oficinista oficinista, Map<Actividades, List<Semana>> semanaActs) {
+    private void manejarMenuInicial(Scanner sc, Oficinista oficinista, Map<Actividades, List<Semana>> semanaActs) {
         boolean opcionCorrecta = false;
         while (!opcionCorrecta) {
             String opcion = Menus.menuInicial();
