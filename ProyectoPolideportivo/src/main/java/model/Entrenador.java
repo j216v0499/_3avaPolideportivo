@@ -1,8 +1,21 @@
 package model;
 
+
+/**
+ *
+ *
+ *
+ */
 public class Entrenador extends Trabajadores {
     private static Entrenador instance;
 
+    /**
+     * Se usa para el instranciar objetos de entrenador
+     *
+     * @param nombre
+     * @param pass
+     * @param DNI
+     */
     public Entrenador(String nombre, String pass, String DNI) {
         super(nombre, pass, DNI);
     }
