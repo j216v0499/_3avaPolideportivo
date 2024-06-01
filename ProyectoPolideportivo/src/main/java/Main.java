@@ -9,7 +9,7 @@ public class Main {
          * */
         //LauncherTerminal.lanzador();
         ViewPolideportivoTerminal viewProductTerminal = new ViewPolideportivoTerminal();
-        viewProductTerminal.lanzador();
+        viewProductTerminal.mostrarMenu();
 
 
 

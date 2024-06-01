@@ -24,3 +24,7 @@ Sigo corrigiendo exámenes. En cuanto al proyecto, tres cosillas:
   Recordar que para acceder a la instancia de un objeto
   singleton SI HACE FALTA un método estático.
 
+---------------------------------------------------------------------
+El main se arreglas y se cambia el acceso al main, a un acceso statico
+
+Se elimina el java ParaUsuarios y se mete su codigo en el ViewPolideportivoTerminal
