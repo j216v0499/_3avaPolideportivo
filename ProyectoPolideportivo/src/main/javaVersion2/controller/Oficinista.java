@@ -44,31 +44,31 @@ public class Oficinista extends Trabajadores{
      * @param numHora espera la hora
      * @param numDia espera el día
      * */
-    public void realizarReserva(Actividades actividad, String nomReserva, int numUser, int numSemana, int numHora, int numDia){
-
-        Map<Actividades, List<Semana>> mapaActs =
-                FileManager.getInstance().loadFileMap("mapa");
-
-        if (mapaActs.get(actividad).toString().equals(Actividades.YOGA) || mapaActs.get(actividad).toString().equals(Actividades.SPINNING)){
-
-            if (mapaActs.get(actividad).get(numSemana).getDias().get(numDia).getHora().get(numHora).getCliente().size()<=20){
-                mapaActs.get(actividad).get(numSemana).getDias().get(numDia).getHora().get(numHora).getCliente().get(numUser).setNombre(nomReserva);
-            }else{
-                System.out.println(colorize("\nNo hay espacio para mas reservas en esta actividad\n",BLUE_TEXT()));
-            }
-
-        }else {
-            mapaActs.get(actividad).get(numSemana).getDias().get(numDia).getHora().get(numHora).getCliente().get(numUser).setNombre(nomReserva);
-        }
-
-        // Cast del numero de usuario
-        int numeroUsuario = (int) FileManager.getInstance().loadFile(FileManager.NUMERO_USUARIO);
-
-        Reserva reserva = new Reserva(actividad, numSemana, numDia, numHora, numeroUsuario);
-
-        FileManager.getInstance().saveFileMap("mapa", mapaActs);
-
-    }
+//    public void realizarReserva(Actividades actividad, String nomReserva, int numUser, int numSemana, int numHora, int numDia){
+//
+//        Map<Actividades, List<Semana>> mapaActs =
+//                FileManager.getInstance().loadFileMap("mapa");
+//
+//        if (mapaActs.get(actividad).toString().equals(Actividades.YOGA) || mapaActs.get(actividad).toString().equals(Actividades.SPINNING)){
+//
+//            if (mapaActs.get(actividad).get(numSemana).getDias().get(numDia).getHora().get(numHora).getCliente().size()<=20){
+//                mapaActs.get(actividad).get(numSemana).getDias().get(numDia).getHora().get(numHora).getCliente().get(numUser).setNombre(nomReserva);
+//            }else{
+//                System.out.println(colorize("\nNo hay espacio para mas reservas en esta actividad\n",BLUE_TEXT()));
+//            }
+//
+//        }else {
+//            mapaActs.get(actividad).get(numSemana).getDias().get(numDia).getHora().get(numHora).getCliente().get(numUser).setNombre(nomReserva);
+//        }
+//
+//        // Cast del numero de usuario
+//        int numeroUsuario = (int) FileManager.getInstance().loadFile(FileManager.NUMERO_USUARIO);
+//
+//        Reserva reserva = new Reserva(actividad, numSemana, numDia, numHora, numeroUsuario);
+//
+//        FileManager.getInstance().saveFileMap("mapa", mapaActs);
+//
+//    }
 
     /**
      * Se espera quitar una reserva
@@ -81,15 +81,15 @@ public class Oficinista extends Trabajadores{
      * @param reservas se espera una lista de las reservas
      * */
 
-    public void quitarReserva(Actividades actividad, int numUser, int numSemana, int numHora, int numDia, List<Reserva> reservas){
-
-        Map<Actividades, List<Semana>> mapaActs = FileManager.getInstance().loadFileMap("mapa");
-
-        mapaActs.get(actividad).get(numSemana).getDias().get(numDia).getHora().get(numHora).getCliente().get(numUser).setNombre("Disponible");
-
-        FileManager.getInstance().saveFileMap("mapa", mapaActs);
-
-    }
+//    public void quitarReserva(Actividades actividad, int numUser, int numSemana, int numHora, int numDia, List<Reserva> reservas){
+//
+//        Map<Actividades, List<Semana>> mapaActs = FileManager.getInstance().loadFileMap("mapa");
+//
+//        mapaActs.get(actividad).get(numSemana).getDias().get(numDia).getHora().get(numHora).getCliente().get(numUser).setNombre("Disponible");
+//
+//        FileManager.getInstance().saveFileMap("mapa", mapaActs);
+//
+//    }
 
     /**
      * Se espera asignar un trabajador a la actividad
@@ -102,15 +102,15 @@ public class Oficinista extends Trabajadores{
      *
      * */
 
-    private void asignarTrabajador(Actividades actividad, int numSemana,int numDia, int numHora, Trabajadores trabajador){
-
-        Map<Actividades, List<Semana>> mapaActs = FileManager.getInstance().loadFileMap("mapa");
-
-        mapaActs.get(actividad).get(numSemana).getDias().get(numDia).getHora().get(numHora).setTrabajador(trabajador);
-
-        FileManager.getInstance().saveFileMap("mapa", mapaActs);
-
-    }
+//    private void asignarTrabajador(Actividades actividad, int numSemana,int numDia, int numHora, Trabajadores trabajador){
+//
+//        Map<Actividades, List<Semana>> mapaActs = FileManager.getInstance().loadFileMap("mapa");
+//
+//        mapaActs.get(actividad).get(numSemana).getDias().get(numDia).getHora().get(numHora).setTrabajador(trabajador);
+//
+//        FileManager.getInstance().saveFileMap("mapa", mapaActs);
+//
+//    }
 
     /**
      * Se espera poder ver las reservas realizadas
