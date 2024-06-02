@@ -9,7 +9,6 @@ public class Usuario extends Writable {
     private String pass;
     private boolean esAdmin;
     private boolean estaSancionado;
-
     private String sancion;
 
 

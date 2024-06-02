@@ -4,19 +4,6 @@ Nuevos requisitos
 Buenos días,
 Sigo corrigiendo exámenes. En cuanto al proyecto, tres cosillas:
 
-- Primera, la fecha máxima de entrega será el lunes a las 23:59.
-
-- Segunda, salvo que alguien me indique lo contrario y lo justifique,
-  la recuperación martes a las 15:15.
-  Había pensado en hacer la recuperación más o menos rápida y
-  después quedarnos en clase los que queráis repasar y
-  entre todos solucionar dudas de cara a la ordinaria.
-  Que alguien en representación del grupo me envíe un correo
-  indicando que todos los compañeros estáis conformes.
-  Si alguien tiene algún problema con esto,
-  que me envíe un correo en privado.
-  Recordar que el martes yo solo estaré hasta las 18.
-
 - Tercera, como vea un solo método estático en vuestro código
   no justificado, suspendo directamente el proyecto.
   Ya os lo he corregido por activa y por pasiva y
@@ -25,12 +12,19 @@ Sigo corrigiendo exámenes. En cuanto al proyecto, tres cosillas:
   singleton SI HACE FALTA un método estático.
 
 ---------------------------------------------------------------------
-El main se arreglas y se cambia el acceso al main, a un acceso statico
+El main se arreglas y se cambia el acceso al main, a un acceso sin statico
+
+el singleton esta mal usado, en los administradores arbitros etc esos objetos no hace falta en singleton
 
 Se elimina el java ParaUsuarios y se mete su codigo en el ViewPolideportivoTerminal
 
 Se reajusta el uso del singleton en los diferentes objetos
     se quita el singleton de ;
-        hora   y se cambia su ubicación a dao
-        dia    y se cambia su ubicación a dao
-        semana y se cambia su ubicación a dao
+        hora    y se cambia su ubicación a dao
+                    ademas se reajusta el JavaDoc
+        dia     y se cambia su ubicación a dao
+                    ademas se reajusta el JavaDoc
+        semana  y se cambia su ubicación a dao
+                    ademas se reajusta el JavaDoc
+        arbitro y se cambia su ubicación a dao
+                    ademas se reajusta el JavaDoc

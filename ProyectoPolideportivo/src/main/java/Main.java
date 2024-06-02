@@ -7,12 +7,9 @@ public class Main {
          * Se ha arreglado el acceso static de la clase menus
          *      LauncherTerminal. lanzador();
          * */
-        //LauncherTerminal.lanzador();
+
         ViewPolideportivoTerminal viewProductTerminal = new ViewPolideportivoTerminal();
         viewProductTerminal.mostrarMenu();
-
-
-
 
     }
 }

@@ -16,7 +16,7 @@ public class VerCalendario {
      *
      *
      */
-    public static void verCalendario(Scanner sc){
+    public void verCalendario(Scanner sc){
 
         Actividades actividad = Actividades.FUTBOL;
 

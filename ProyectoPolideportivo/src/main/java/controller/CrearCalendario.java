@@ -42,7 +42,7 @@ public class CrearCalendario {
 
             //Introducción de dias en semana
             if(!date.getDayOfWeek().equals(DayOfWeek.SATURDAY) && !date.getDayOfWeek().equals(DayOfWeek.SUNDAY)) {
-                Dia dia = Dia.getInstance(date.getDayOfWeek().toString());
+                Dia dia = new Dia(date.getDayOfWeek().toString());
                 semana.getDias().add(dia);
 
                 //Introducción de horas en dias trabajadores y clientes en horas

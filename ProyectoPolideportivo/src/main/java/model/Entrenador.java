@@ -1,11 +1,6 @@
 package model;
 
 
-/**
- *
- *
- *
- */
 public class Entrenador extends Trabajadores {
     private static Entrenador instance;
 
