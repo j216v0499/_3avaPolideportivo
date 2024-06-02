@@ -1,4 +1,4 @@
-package util;
+package view;
 
 import controller.Actividades;
 import controller.Oficinista;
@@ -12,9 +12,9 @@ import java.util.Scanner;
 import static com.diogonunes.jcolor.Ansi.colorize;
 import static com.diogonunes.jcolor.Attribute.*;
 
-public class Menus {
+public class ViewPolideportivoTerminalAuxiliar {
 
-    public static String menuInicial() {
+    public String menuInicial() {
         Scanner sc = new Scanner(System.in);
 
         System.out.println(colorize("\nＰＯＬＩＤＥＰＯＲＴＩＶＯ", BRIGHT_BLUE_TEXT()));
@@ -26,7 +26,7 @@ public class Menus {
 
     }
 
-    public static void menuAlta(Scanner sc, Oficinista oficinista) {
+    public void menuAlta(Scanner sc, Oficinista oficinista) {
 
             System.out.print(colorize("\nNombre de usuario: ", BRIGHT_RED_TEXT()));
             String nomUser = sc.next();
@@ -47,7 +47,7 @@ public class Menus {
     }
 
 
-    public static boolean inicioSesionUsuarios(Scanner sc) {
+    public boolean inicioSesionUsuarios(Scanner sc) {
 
         System.out.println(colorize("\nLista de usuarios registrados (elige que perfil utilizar):", BLUE_TEXT()));
         ArrayList<Usuario> usus1 = null;
@@ -102,7 +102,7 @@ public class Menus {
         }
     }
 
-    public static boolean inicioSesionOficina(Scanner sc) {
+    public boolean inicioSesionOficina(Scanner sc) {
 
         System.out.println(colorize("\nLista de usuarios registrados (elige que perfil utilizar):", BLUE_TEXT()));
 
@@ -126,7 +126,6 @@ public class Menus {
             inicioSesionOficina(sc);
         }
 
-
         System.out.println(colorize("\nIdentificación:", BLUE_TEXT()));
         System.out.print(colorize("-> ", BRIGHT_BLUE_TEXT()));
         String DNI = sc.next();
@@ -145,8 +144,7 @@ public class Menus {
         return false;
     }
 
-
-    public static Actividades eleccionActividad(Actividades actividad, int numAct) {
+    public Actividades eleccionActividad(Actividades actividad, int numAct) {
         switch (numAct) {
             case 1: {
                 actividad = Actividades.FUTBOL;

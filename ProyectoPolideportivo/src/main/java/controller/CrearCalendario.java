@@ -21,7 +21,7 @@ public class CrearCalendario {
      *
      * */
 
-    public static List<Semana> calendario(){
+    public List<Semana> calendario(){
 
         //Código para generar las fechas del año
         LocalDate fechaInicio = LocalDate.parse("2023-01-01");

@@ -28,3 +28,28 @@ Se reajusta el uso del singleton en los diferentes objetos
                     ademas se reajusta el JavaDoc
         arbitro y se cambia su ubicación a dao
                     ademas se reajusta el JavaDoc
+
+
+El la clase menus, se quita el static y se ajusta su llamada en el resto de clases, creando un objeto de tipo;
+    private ViewPolideportivoTerminalAuxiliar viewPolideportivoTerminalAuxiliar = new ViewPolideportivoTerminalAuxiliar();
+
+Se quitan todos los accesos staticos posibles y se comienza ha acceder a estos metodos,
+utilizando objetos
+
+
+
+
+    private void toStringUsuario(){
+        int id = obtenerIdProducto();
+        Product product = getProduct(id);
+        if(product!= null){
+            System.out.println("id: " + product.getId() + "\n" +
+                    "nombre: " + product.getName() + "\n" +
+                    "stock: " + product.getStock() + "\n" +
+                    "precio: " + product.getPrice());
+        }
+
+    }
+
+
+

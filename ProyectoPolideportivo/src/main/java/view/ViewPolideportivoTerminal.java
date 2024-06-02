@@ -2,7 +2,6 @@ package view;
 
 import controller.*;
 import dao.Semana;
-import util.Menus;
 
 import java.util.*;
 
@@ -15,6 +14,11 @@ public class ViewPolideportivoTerminal {
 
     //private ControllerProduct controllerProduct = new ControllerProduct();
     private Scanner scanner = new Scanner(System.in);
+
+    private final ViewPolideportivoTerminalAuxiliar viewPolideportivoTerminalAuxiliar = new ViewPolideportivoTerminalAuxiliar();
+
+    private final ParaOficinistas paraOficinistas = new ParaOficinistas();
+
 
     public void mostrarMenu() {
         // Creación de oficinista y mapa de actividades
@@ -33,7 +37,7 @@ public class ViewPolideportivoTerminal {
     private void manejarMenuInicial(Oficinista oficinista, Map<Actividades, List<Semana>> semanaActs) {
         boolean opcionCorrecta = false;
         while (!opcionCorrecta) {
-            String opcion = Menus.menuInicial();
+            String opcion = viewPolideportivoTerminalAuxiliar.menuInicial();
             switch (opcion) {
                 case "1":
                     opcionCorrecta = true;
@@ -41,7 +45,7 @@ public class ViewPolideportivoTerminal {
                     break;
                 case "2":
                     opcionCorrecta = true;
-                    ParaOficinistas.appOficina(scanner, oficinista);
+                    paraOficinistas.appOficina(scanner, oficinista);
                     break;
                 default:
                     System.out.println("Opción inválida. Por favor, seleccione de nuevo.");
@@ -64,17 +68,17 @@ public class ViewPolideportivoTerminal {
         System.out.print(colorize("--> ",BRIGHT_BLUE_TEXT()));
         String res1=sc.next();
         if (res1.equals("n")) {
-            Menus.menuAlta(sc, oficinista);
+            viewPolideportivoTerminalAuxiliar.menuAlta(sc, oficinista);
         }
 
         // Comprobamos si hay usuarios registrados
-        if (!Menus.inicioSesionUsuarios(sc)) {
+        if (!viewPolideportivoTerminalAuxiliar.inicioSesionUsuarios(sc)) {
             System.out.println(colorize("No hay usuarios registrados.", BLUE_TEXT()));
             return; // Salimos del método si no hay usuarios registrados
         }
 
         // Continuamos con el inicio de sesión
-        while (!Menus.inicioSesionUsuarios(sc)) {
+        while (!viewPolideportivoTerminalAuxiliar.inicioSesionUsuarios(sc)) {
             System.out.println(colorize("Inicio de sesión incorrecto", BLUE_TEXT()));
         }
 
@@ -88,7 +92,6 @@ public class ViewPolideportivoTerminal {
             System.out.print(colorize("--> ",BRIGHT_BLUE_TEXT()));
             res2 = sc.next();
             System.out.println(colorize("\nAPLICACION EN DESAROLLO, CONTEACTE POR TELEFONO AL POLIDEPORTIVO, GRACIAS\n", BRIGHT_BLUE_TEXT()));
-
 
         }while (!res2.equals("4"));
     }

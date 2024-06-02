@@ -1,6 +1,6 @@
 package controller;
 
-import util.Menus;
+import view.ViewPolideportivoTerminalAuxiliar;
 
 import java.util.Scanner;
 
@@ -16,6 +16,11 @@ public class VerCalendario {
      *
      *
      */
+    private ViewPolideportivoTerminalAuxiliar viewPolideportivoTerminalAuxiliar = new ViewPolideportivoTerminalAuxiliar();
+
+    private MostrarCalendario mostrarCalendario = new MostrarCalendario();
+
+
     public void verCalendario(Scanner sc){
 
         Actividades actividad = Actividades.FUTBOL;
@@ -28,13 +33,13 @@ public class VerCalendario {
         }
         System.out.print(colorize("--> ",BRIGHT_BLUE_TEXT()));
         int numAct = sc.nextInt();
-        actividad =  Menus.eleccionActividad(actividad, numAct);
+        actividad =  viewPolideportivoTerminalAuxiliar.eleccionActividad(actividad, numAct);
 
         System.out.println(colorize("\n¿dao.Semana? (0-51)", BLUE_TEXT()));
         System.out.print(colorize("--> ",BRIGHT_BLUE_TEXT()));
         int numSemana = sc.nextInt();
 
-        MostrarCalendario.mostrarCalendario(numSemana,actividad);
+        mostrarCalendario.mostrarCalendario(numSemana,actividad);
     }
 
 

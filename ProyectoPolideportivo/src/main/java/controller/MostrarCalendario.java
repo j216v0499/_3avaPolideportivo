@@ -19,7 +19,7 @@ public class MostrarCalendario {
      *
      * */
 
-    public static void mostrarCalendario(int numSemana, Actividades actividad) {
+    public void mostrarCalendario(int numSemana, Actividades actividad) {
         FileManager fileManager = FileManager.getInstance();
         Map<Actividades, List<Semana>> semanaActs = fileManager.loadFileMap("mapa");
         List<Usuario> usuarios = fileManager.loadFileList(FileManager.NUMERO_USUARIO);

@@ -3,9 +3,8 @@ package controller;
 import model.Reserva;
 import model.Usuario;
 import util.FileManager;
-import util.Menus;
+import view.ViewPolideportivoTerminalAuxiliar;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
@@ -13,6 +12,8 @@ import static com.diogonunes.jcolor.Ansi.colorize;
 import static com.diogonunes.jcolor.Attribute.*;
 
 public class ParaOficinistas {
+
+    private final ViewPolideportivoTerminalAuxiliar viewPolideportivoTerminalAuxiliar = new ViewPolideportivoTerminalAuxiliar();
 
     /**
      * Realizar una reserva
@@ -22,16 +23,16 @@ public class ParaOficinistas {
      *
      * */
 
-    public static void appOficina(Scanner sc, Oficinista oficinista){
+    public void appOficina(Scanner sc, Oficinista oficinista){
 
         System.out.println(colorize("\n¿Ya tienes un usuario? (s/n) 'n' para darte de alta", BLUE_TEXT()));
         System.out.print(colorize("--> ",BRIGHT_BLUE_TEXT()));
         String res1=sc.next();
         if (res1.equals("n")) {
-            Menus.menuAlta(sc, oficinista);
-            ParaOficinistas.appOficina(sc,oficinista);
+            viewPolideportivoTerminalAuxiliar.menuAlta(sc, oficinista);
+            appOficina(sc,oficinista);
         }else {
-            while (!Menus.inicioSesionOficina(sc)) {
+            while (!viewPolideportivoTerminalAuxiliar.inicioSesionOficina(sc)) {
                 System.out.println(colorize("\tInicio de session incorrecto", BLUE_TEXT()));
             }
 
@@ -40,7 +41,7 @@ public class ParaOficinistas {
 
             do {
 
-                System.out.println(colorize("\nAdmin detectado que deseas\n", BLUE_TEXT()));
+                //System.out.println(colorize("\nAdmin detectado que deseas\n", BLUE_TEXT()));
                 // System.out.println(colorize("Sancionar(1)    quitar reserva(2)   mostrar calendario(3)   salir(4)    ver reservas(5)  VerificarSancionar(6)", BLUE_TEXT()));
                 System.out.println(colorize("Sancionar(1)\tDardeAltaUsuarios(2)\tVerificarSancionar(3)\tSalir(4)", BLUE_TEXT()));
                 System.out.print(colorize("--> ", BRIGHT_BLUE_TEXT()));
@@ -64,7 +65,7 @@ public class ParaOficinistas {
                 }
 
                 if (res2.equals("2")) {
-                    Menus.menuAlta(sc, oficinista);
+                    viewPolideportivoTerminalAuxiliar.menuAlta(sc, oficinista);
                 }
 
 //              TODO: Esta parte ya se hara el la version 2 del proyecto
@@ -129,7 +130,7 @@ public class ParaOficinistas {
      *
      * */
 
-    public static void sancionarUsuario(String dni, String sancion) {
+    public void sancionarUsuario(String dni, String sancion) {
         List<Usuario> listaUsuarios = (List<Usuario>) FileManager.getInstance().loadFileList(FileManager.LISTA_USUARIOS);
 
         boolean usuarioEncontrado = false;
@@ -161,7 +162,7 @@ public class ParaOficinistas {
      * @param dni se espera ver el dni del usuario sancionado
      *
      * */
-    public static void verSancionarUsuario(String dni){
+    public void verSancionarUsuario(String dni){
 
         List<Usuario> usuarios1 = (List<Usuario>) FileManager.getInstance().loadFileList(FileManager.LISTA_USUARIOS);
 
@@ -187,7 +188,7 @@ public class ParaOficinistas {
      * @param numDia espera el día
      *
      * */
-    public static void verReservas(Oficinista oficinista, Actividades actividad,int numUsuario, int numSemana, int numHora, int numDia){
+    public void verReservas(Oficinista oficinista, Actividades actividad,int numUsuario, int numSemana, int numHora, int numDia){
 
         List<Reserva> reservas = (List<Reserva>) FileManager.getInstance().loadFileList("reservas");
 
