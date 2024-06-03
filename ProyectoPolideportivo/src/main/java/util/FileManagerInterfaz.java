@@ -16,7 +16,7 @@ public interface FileManagerInterfaz<T> {
      * @param fileName El nombre del archivo.
      * @param object El objeto a guardar.
      */
-    public void saveFile(String fileName, T object);
+    void saveFile(String fileName, T object);
 
     /**
      * Método para cargar un objeto desde un archivo.
