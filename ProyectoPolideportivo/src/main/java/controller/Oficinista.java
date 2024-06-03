@@ -17,22 +17,22 @@ public class Oficinista extends Trabajadores{
     public Oficinista(){
         super();
     }
-
-    /**
-     *  Se espera dar de alta un usuario
-     *
-     * @param usuario se espera el acceso del usuario
-     * @param usuarios1 lista de usuarios
-     * */
-    public void darAlta( List<Usuario> usuarios1, Usuario usuario){
-
-        //guardar al cliente en lista con filemanager
-        if (usuarios1==null)
-            usuarios1 = new ArrayList<>();
-        usuarios1.add(usuario);
-        FileManager.getInstance().saveFileList(FileManager.LISTA_USUARIOS, usuarios1);
-
-    }
+//
+//    /**
+//     *  Se espera dar de alta un usuario
+//     *
+//     * @param usuario se espera el acceso del usuario
+//     * @param usuarios1 lista de usuarios
+//     * */
+//    public void darAlta( List<Usuario> usuarios1, Usuario usuario){
+//
+//        //guardar al cliente en lista con filemanager
+//        if (usuarios1==null)
+//            usuarios1 = new ArrayList<>();
+//        usuarios1.add(usuario);
+//        FileManager.getInstance().saveFileList(FileManager.LISTA_USUARIOS, usuarios1);
+//
+//    }
 
     /**
      * Realizar una reserva

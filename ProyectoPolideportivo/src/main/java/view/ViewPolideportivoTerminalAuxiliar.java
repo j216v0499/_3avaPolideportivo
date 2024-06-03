@@ -1,6 +1,7 @@
 package view;
 
 import controller.Actividades;
+import controller.ControllerOficinista;
 import controller.Oficinista;
 import model.Usuario;
 import util.FileManager;
@@ -13,6 +14,10 @@ import static com.diogonunes.jcolor.Ansi.colorize;
 import static com.diogonunes.jcolor.Attribute.*;
 
 public class ViewPolideportivoTerminalAuxiliar {
+
+    private ControllerOficinista controllerOficinista = new ControllerOficinista();
+
+
 
     public String menuInicial() {
         Scanner sc = new Scanner(System.in);
@@ -40,7 +45,7 @@ public class ViewPolideportivoTerminalAuxiliar {
             Usuario usuario = new Usuario(nomUser, pass, DNI);
 
             List<Usuario> usuarios1 = (List<Usuario>) FileManager.getInstance().loadFileList(FileManager.LISTA_USUARIOS);
-            oficinista.darAlta(usuarios1, usuario);
+            controllerOficinista.darAlta(usuarios1, usuario);
             System.out.print(colorize("\nmodel.Usuario dado de Alta\n ", BRIGHT_RED_TEXT()));
             System.out.println("Datos del usuario nuevo -->");
             System.out.println(usuarioToString(usuario));
