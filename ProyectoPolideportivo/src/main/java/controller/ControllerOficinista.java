@@ -1,16 +1,14 @@
 package controller;
 
+import dao.Oficinista;
 import model.ModelOficinista;
-import model.Usuario;
-import util.FileManager;
+import dao.Usuario;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import static com.diogonunes.jcolor.Ansi.colorize;
-import static com.diogonunes.jcolor.Attribute.BRIGHT_RED_TEXT;
 
-public class ControllerOficinista extends Oficinista{
+public class ControllerOficinista extends Oficinista {
 
     private ModelOficinista modelOficinista = new ModelOficinista();
 

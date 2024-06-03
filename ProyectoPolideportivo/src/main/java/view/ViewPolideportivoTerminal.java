@@ -1,6 +1,6 @@
 package view;
 
-import controller.*;
+import dao.Oficinista;
 
 import java.util.*;
 

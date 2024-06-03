@@ -1,16 +1,8 @@
-package controller;
-
-import java.util.ArrayList;
+package dao;
 
 //import model.Reserva;
 //import dao.Semana;
-import model.Trabajadores;
-import model.Usuario;
-import util.FileManager;
-import java.util.List;
-import java.util.Map;
 import static com.diogonunes.jcolor.Ansi.colorize;
-import static com.diogonunes.jcolor.Attribute.*;
 
 public class Oficinista extends Trabajadores{
 

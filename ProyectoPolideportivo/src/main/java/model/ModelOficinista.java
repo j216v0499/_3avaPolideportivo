@@ -1,5 +1,6 @@
 package model;
 
+import dao.Usuario;
 import util.FileManager;
 import view.ViewPolideportivoTerminalAuxiliar;
 

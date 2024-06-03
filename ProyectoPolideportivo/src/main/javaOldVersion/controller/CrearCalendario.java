@@ -47,7 +47,7 @@ import java.util.stream.Stream;
 //
 //                //Introducción de horas en dias trabajadores y clientes en horas
 //                for (int i = 0; i<10;i++) {
-//                    //public dao.Hora(String formato, List<model.Usuario> cliente, model.Trabajadores trabajador) {
+//                    //public dao.Hora(String formato, List<dao.Usuario> cliente, dao.Trabajadores trabajador) {
 //                    Usuario usuario = new Usuario("Disponible","pass",null,null);
 //                    Trabajadores trabajador = new Trabajadores("Nombre","pass",null);
 //

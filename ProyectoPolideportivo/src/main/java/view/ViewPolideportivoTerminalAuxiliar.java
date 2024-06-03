@@ -1,9 +1,9 @@
 package view;
 
-import controller.Actividades;
+import base.Actividades;
 import controller.ControllerOficinista;
-import controller.Oficinista;
-import model.Usuario;
+import dao.Oficinista;
+import dao.Usuario;
 import util.FileManager;
 
 import java.util.ArrayList;
@@ -46,7 +46,7 @@ public class ViewPolideportivoTerminalAuxiliar {
 
             List<Usuario> usuarios1 = (List<Usuario>) FileManager.getInstance().loadFileList(FileManager.LISTA_USUARIOS);
             controllerOficinista.darAlta(usuarios1, usuario);
-            System.out.print(colorize("\nmodel.Usuario dado de Alta\n ", BRIGHT_RED_TEXT()));
+            System.out.print(colorize("\ndao.Usuario dado de Alta\n ", BRIGHT_RED_TEXT()));
             System.out.println("Datos del usuario nuevo -->");
             System.out.println(usuarioToString(usuario));
 

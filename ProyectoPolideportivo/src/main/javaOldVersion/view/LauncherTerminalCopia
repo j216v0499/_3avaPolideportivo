@@ -4,7 +4,7 @@
         //actividades
         int numAct = 0;
         Actividades actividad = Actividades.FUTBOL;
-        //controller.Oficinista
+        //dao.Oficinista
         Oficinista oficinista = new Oficinista(); //cramos una oficinista
 
         Map<Actividades, List<Semana>> semanaActs = new HashMap<>();  //creamos un mapa de actividades

@@ -1,6 +1,6 @@
 //package dao;
 //
-//import model.Trabajadores;
+//import dao.Trabajadores;
 //
 ///**
 // * La clase Arbitro representa un árbitro en el sistema.

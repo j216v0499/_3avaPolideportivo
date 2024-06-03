@@ -41,7 +41,7 @@ public class ViewPolideportivoTerminalAuxiliar {
 
             List<Usuario> usuarios1 = (List<Usuario>) FileManager.getInstance().loadFileList(FileManager.LISTA_USUARIOS);
             oficinista.darAlta(usuarios1, usuario);
-            System.out.print(colorize("\nmodel.Usuario dado de Alta\n ", BRIGHT_RED_TEXT()));
+            System.out.print(colorize("\ndao.Usuario dado de Alta\n ", BRIGHT_RED_TEXT()));
             System.out.println("Datos del usuario nuevo -->");
             System.out.println(usuarioToString(usuario));
 

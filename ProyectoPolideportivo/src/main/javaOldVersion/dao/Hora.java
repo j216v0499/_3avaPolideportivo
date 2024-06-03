@@ -1,8 +1,8 @@
 //package dao;
 //
 //import base.Writable;
-//import model.Trabajadores;
-//import model.Usuario;
+//import dao.Trabajadores;
+//import dao.Usuario;
 //
 //import java.util.List;
 //
