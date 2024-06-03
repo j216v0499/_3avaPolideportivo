@@ -16,7 +16,7 @@ public class ViewPolideportivoTerminal {
 
     private final ViewPolideportivoTerminalAuxiliar viewPolideportivoTerminalAuxiliar = new ViewPolideportivoTerminalAuxiliar();
 
-    private final ParaOficinistas paraOficinistas = new ParaOficinistas();
+    private final ViewPolideportivoTerminalOficinistas paraOficinistas = new ViewPolideportivoTerminalOficinistas();
 
 
     public void mostrarMenu() {
@@ -27,12 +27,13 @@ public class ViewPolideportivoTerminal {
         // Definir y asignar un valor a actividad
         //Actividades actividad = Actividades.FUTBOL;
 
-        boolean opcionCorrecta = true;
+        boolean opcionNoCorrecta;
+
         do {
             // Manejo del menú inicial
-            opcionCorrecta = manejarMenuInicial(oficinista);
+            opcionNoCorrecta = manejarMenuInicial(oficinista);
             //LauncherTerminal.manejarMenuInicial(sc, oficinista, semanaActs);
-        }while (!opcionCorrecta);
+        }while (!opcionNoCorrecta);
 
     }
 
@@ -48,6 +49,9 @@ public class ViewPolideportivoTerminal {
                 case "2":
                     opcionCorrecta = true;
                     paraOficinistas.appOficina(scanner, oficinista);
+                    break;
+                case "3":
+                    contacteConPolideportivo();
                     break;
                 default:
                     System.out.println("Opción inválida. Por favor, seleccione de nuevo.");
@@ -69,24 +73,25 @@ public class ViewPolideportivoTerminal {
         System.out.println(colorize("\n¿Ya tienes un usuario? (s/n) 'n' para darte de alta", BLUE_TEXT()));
         System.out.print(colorize("--> ",BRIGHT_BLUE_TEXT()));
         String res1=sc.next();
+
         if (res1.equals("n")) {
             viewPolideportivoTerminalAuxiliar.menuAlta(sc, oficinista);
         }
 
         // Comprobamos si hay usuarios registrados
-        if (!viewPolideportivoTerminalAuxiliar.inicioSesionUsuarios(sc)) {
+        if (viewPolideportivoTerminalAuxiliar.inicioUsuarios(sc)) {
             System.out.println(colorize("No hay usuarios registrados.", BLUE_TEXT()));
             return; // Salimos del método si no hay usuarios registrados
         }
 
         // Continuamos con el inicio de sesión
-        while (!viewPolideportivoTerminalAuxiliar.inicioSesionUsuarios(sc)) {
+        while (viewPolideportivoTerminalAuxiliar.inicioUsuarios(sc)) {
             System.out.println(colorize("Inicio de sesión incorrecto", BLUE_TEXT()));
         }
 
         System.out.println(colorize("\nSesión iniciada", BLUE_TEXT()));
 
-        String res2="";
+        String res2;
         do {
 
             System.out.println(colorize("\nBienvenido al polideportivo ¿que desea hacer?\n", BLUE_TEXT()));
@@ -94,9 +99,20 @@ public class ViewPolideportivoTerminal {
             System.out.print(colorize("--> ",BRIGHT_BLUE_TEXT()));
             res2 = sc.next();
             System.out.println(colorize("\nAPLICACION EN DESAROLLO, CONTEACTE POR TELEFONO AL POLIDEPORTIVO, GRACIAS\n", BRIGHT_BLUE_TEXT()));
+            System.out.println();
+            contacteConPolideportivo();
 
         }while (!res2.equals("4"));
     }
+
+    public void contacteConPolideportivo(){
+        System.out.println();
+        System.out.print(colorize("APLICACION EN DESAROLLO, CONTEACTE POR TELEFONO AL POLIDEPORTIVO, GRACIAS\n",  RED_BACK()));
+        System.out.print(colorize("APLICACION EN DESAROLLO, CONTEACTE POR TELEFONO AL POLIDEPORTIVO, GRACIAS\n",  YELLOW_BACK()));
+        System.out.print(colorize("APLICACION EN DESAROLLO, CONTEACTE POR TELEFONO AL POLIDEPORTIVO, GRACIAS\n",  RED_BACK()));
+
+    }
+
 }
 
 

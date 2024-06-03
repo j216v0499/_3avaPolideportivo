@@ -7,7 +7,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Implementación del repositorio para la gestión de oficinistas.
+ * La clase RepositoryOficinista implementa la interfaz RepositoryOficinistaInterfaz y proporciona una implementación del repositorio para la gestión de oficinistas.
+ * Utiliza el patrón Singleton para garantizar que solo exista una instancia de RepositoryOficinista.
  */
 public class RepositoryOficinista implements RepositoryOficinistaInterfaz {
 
@@ -67,7 +68,6 @@ public class RepositoryOficinista implements RepositoryOficinistaInterfaz {
         }
 
         return  usuarioEncontrado;
-
 
     }
 

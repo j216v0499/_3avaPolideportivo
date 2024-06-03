@@ -9,7 +9,7 @@ import java.util.Map;
  *
  * @param <T> tipo de objeto
  */
-public class FileManager<T> {
+public class FileManager<T> implements FileManagerInterfaz<T>{
 
     public static final String LISTA_USUARIOS = "listausu";
 
@@ -24,7 +24,7 @@ public class FileManager<T> {
      *
      * @return instancia de FileManager
      */
-    public static synchronized FileManager getInstance() {
+    public static FileManager getInstance() {
         if (instance == null) {
             instance = new FileManager();
         }

@@ -14,7 +14,7 @@ import static com.diogonunes.jcolor.Attribute.*;
 
 public class ViewPolideportivoTerminalAuxiliar {
 
-    private ControllerOficinista controllerOficinista = new ControllerOficinista();
+    private final ControllerOficinista controllerOficinista = new ControllerOficinista();
 
 
 
@@ -36,22 +36,22 @@ public class ViewPolideportivoTerminalAuxiliar {
             String nomUser = sc.next();
             System.out.print(colorize("\nIntroduce tu DNI para identificarte: ", BRIGHT_RED_TEXT()));
             String DNI = sc.next();
-//            System.out.print(colorize("\nEl usuario va ha ser admin? (true o false) : ", BRIGHT_RED_TEXT()));
-//            boolean esAdmin = sc.nextBoolean();
             System.out.print(colorize("\nAsignar contraseña: ", BRIGHT_RED_TEXT()));
             String pass = sc.next();
 
             Usuario usuario = new Usuario(nomUser, pass, DNI);
 
-            List<Usuario> usuarios1 = (List<Usuario>) FileManager.getInstance().loadFileList(FileManager.LISTA_USUARIOS);
+            List<Usuario> usuarios1 =
+                    (List<Usuario>) FileManager.getInstance().loadFileList(
+                            FileManager.LISTA_USUARIOS);
             controllerOficinista.darAlta(usuarios1, usuario);
-            System.out.print(colorize("\ndao.Usuario dado de Alta\n ", BRIGHT_RED_TEXT()));
-            System.out.println("Datos del usuario nuevo -->");
+            System.out.print(colorize("\nUsuario dado de Alta\n ", BRIGHT_RED_TEXT()));
+            System.out.print(colorize("Datos del usuario nuevo -->\n", BRIGHT_YELLOW_BACK()));
             System.out.println(usuarioToString(usuario));
 
     }
 
-    public boolean inicioSesionUsuarios(Scanner sc) {
+    public boolean inicioUsuarios(Scanner sc) {
 
         System.out.println(colorize("\nLista de usuarios registrados (elige que perfil utilizar):", BLUE_TEXT()));
         ArrayList<Usuario> usus1 = null;
@@ -66,12 +66,12 @@ public class ViewPolideportivoTerminalAuxiliar {
 
         if (usus1 == null || usus1.isEmpty()) {
             System.out.println("No hay usuarios registrados para iniciar sesión.");
-            return false;
+            return true;
         } else {
 
             int contador = 0;
             for (Usuario eleccion : usus1) {
-                System.out.println(colorize("(" + contador + ")" + eleccion.getNombre().toString(), BLUE_TEXT()));
+                System.out.println(colorize("(" + contador + ")" + eleccion.getNombre(), BLUE_TEXT()));
                 contador++;
             }
             System.out.println();
@@ -82,7 +82,7 @@ public class ViewPolideportivoTerminalAuxiliar {
 
             if (numUser > contador) {
                 System.out.println("El usuario no exsiste");
-                return false;
+                return true;
 
             }
 
@@ -99,10 +99,8 @@ public class ViewPolideportivoTerminalAuxiliar {
 
             ArrayList<Usuario> usus2 = (ArrayList<Usuario>) FileManager.getInstance().loadFileList(FileManager.LISTA_USUARIOS);
 
-            if (usus2.get(numUser).getDNI().toString().equals(DNI)
-                    && usus2.get(numUser).getPass().toString().equals(pass))
-                return true;
-            return false;
+            return !usus2.get(numUser).getDNI().equals(DNI)
+                    || !usus2.get(numUser).getPass().equals(pass);
         }
     }
 
@@ -114,7 +112,7 @@ public class ViewPolideportivoTerminalAuxiliar {
 
         int contador = 0;
         for (Usuario eleccion : usus1) {
-            System.out.println(colorize("(" + contador + ")" + eleccion.getNombre().toString(), BLUE_TEXT()));
+            System.out.println(colorize("(" + contador + ")" + eleccion.getNombre(), BLUE_TEXT()));
             contador++;
         }
         System.out.println();
@@ -143,9 +141,7 @@ public class ViewPolideportivoTerminalAuxiliar {
 
         ArrayList<Usuario> usus2 = (ArrayList<Usuario>) FileManager.getInstance().loadFileList(FileManager.LISTA_USUARIOS);
 
-        if (usus2.get(numUser).getDNI().toString().equals(DNI) && usus2.get(numUser).getPass().toString().equals(pass))
-            return true;
-        return false;
+        return usus2.get(numUser).getDNI().equals(DNI) && usus2.get(numUser).getPass().equals(pass);
     }
 //
 //    public Actividades eleccionActividad(Actividades actividad, int numAct) {
