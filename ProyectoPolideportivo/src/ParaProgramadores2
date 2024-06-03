@@ -37,10 +37,7 @@ Se quitan todos los accesos staticos posibles y se comienza ha acceder a estos m
 utilizando objetos
 
 
-se quitael to string de usuario y se mete en view terminal auxiiar
-
-
-
+Se quita el to string de usuario y se mete en view terminal auxiliar
 
     private void toStringUsuario(){
         int id = obtenerIdProducto();

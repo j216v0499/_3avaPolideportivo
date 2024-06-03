@@ -1,6 +1,5 @@
 package view;
 
-import base.Actividades;
 import controller.ControllerOficinista;
 import dao.Oficinista;
 import dao.Usuario;
@@ -148,40 +147,40 @@ public class ViewPolideportivoTerminalAuxiliar {
             return true;
         return false;
     }
-
-    public Actividades eleccionActividad(Actividades actividad, int numAct) {
-        switch (numAct) {
-            case 1: {
-                actividad = Actividades.FUTBOL;
-            }
-            break;
-            case 2: {
-                actividad = Actividades.BALONCESTO;
-            }
-            break;
-            case 3: {
-                actividad = Actividades.PADEL;
-            }
-            break;
-            case 4: {
-                actividad = Actividades.TENIS;
-            }
-            break;
-            case 5: {
-                actividad = Actividades.FRONTON;
-            }
-            break;
-            case 6: {
-                actividad = Actividades.YOGA;
-            }
-            break;
-            case 7: {
-                actividad = Actividades.SPINNING;
-            }
-            break;
-        }
-        return actividad;
-    }
+//
+//    public Actividades eleccionActividad(Actividades actividad, int numAct) {
+//        switch (numAct) {
+//            case 1: {
+//                actividad = Actividades.FUTBOL;
+//            }
+//            break;
+//            case 2: {
+//                actividad = Actividades.BALONCESTO;
+//            }
+//            break;
+//            case 3: {
+//                actividad = Actividades.PADEL;
+//            }
+//            break;
+//            case 4: {
+//                actividad = Actividades.TENIS;
+//            }
+//            break;
+//            case 5: {
+//                actividad = Actividades.FRONTON;
+//            }
+//            break;
+//            case 6: {
+//                actividad = Actividades.YOGA;
+//            }
+//            break;
+//            case 7: {
+//                actividad = Actividades.SPINNING;
+//            }
+//            break;
+//        }
+//        return actividad;
+//    }
 
     public String usuarioToString(Usuario user) {
         return  "\t\tUsuario " + "\n"+

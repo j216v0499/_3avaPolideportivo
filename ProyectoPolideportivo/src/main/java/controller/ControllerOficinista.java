@@ -6,9 +6,9 @@ import dao.Usuario;
 
 import java.util.List;
 
-public class ControllerOficinista extends Oficinista {
+public class ControllerOficinista {
 
-    private ModelOficinista modelOficinista = new ModelOficinista();
+    protected ModelOficinista modelOficinista = new ModelOficinista();
 
     /**
      *  Se espera dar de alta un usuario
@@ -24,7 +24,7 @@ public class ControllerOficinista extends Oficinista {
      * Sancionar usuario
      *
      * @param dni dni del usuario a sancionar
-     * @param sancion sancion del usuario
+     * @param sancion sanción del usuario
      *
      * */
 
@@ -33,27 +33,12 @@ public class ControllerOficinista extends Oficinista {
     }
 
     /**
-     * Se espera poder ver que un usuario esta sancionado
+     * Se espera poder ver que un usuario está sancionado
      * @param dni se espera ver el dni del usuario sancionado
      *
      * */
     public void verSancionarUsuario(String dni){
         modelOficinista.verSancionarUsuario(dni);
     }
-
-    /**
-     * Se espera poder ver las reservas
-     *
-     * @param oficinista se espera el objeto de tipo oficinista
-     * @param actividad nombre de la actividad
-     * @param numUsuario  se espera el numero del usuario
-     * @param numSemana espera el número de la semana
-     * @param numHora espera la hora
-     * @param numDia espera el día
-     *
-     * */
-//    public void verReservas(Oficinista oficinista, Actividades actividad,int numUsuario, int numSemana, int numHora, int numDia){
-//          modelOficinista.verReservas(oficinista,actividad,numUsuario .....)
-//    }
 
 }

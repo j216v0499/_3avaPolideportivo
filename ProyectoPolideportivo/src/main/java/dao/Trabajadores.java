@@ -4,7 +4,7 @@ import base.Writable;
 
 /**
  * La clase Trabajadores representa a los trabajadores en el sistema.
- * Se extiende de la clase Writable.
+ * Se extiende de la clase Writable a su vez de serializable.
  */
 
 public class Trabajadores extends Writable {
@@ -26,13 +26,22 @@ public class Trabajadores extends Writable {
         this.DNI = DNI;
     }
 
-    /**
-     * Constructor por defecto para la clase Trabajadores.
-     */
+
+
+
+
+
 
     public Trabajadores() {
 
     }
+
+
+
+
+
+
+
 
     /**
      * Obtiene el nombre del trabajador.
@@ -63,7 +72,6 @@ public class Trabajadores extends Writable {
     public String getPass() {
         return pass;
     }
-
 
     /**
      * Establece la contraseña del trabajador.
