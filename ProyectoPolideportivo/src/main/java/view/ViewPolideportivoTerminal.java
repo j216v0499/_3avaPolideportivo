@@ -7,10 +7,13 @@ import java.util.*;
 import static com.diogonunes.jcolor.Ansi.colorize;
 import static com.diogonunes.jcolor.Attribute.*;
 
+/**
+ * La clase ViewPolideportivoTerminal proporciona la interfaz
+ * inicial que dara paso a los otros .java, que están más enfocados a los usuarios y a los oficinistas.
+ */
 
 public class ViewPolideportivoTerminal {
 
-    //private ControllerProduct controllerProduct = new ControllerProduct();
     private Scanner scanner = new Scanner(System.in);
 
     private final ViewPolideportivoTerminalAuxiliar viewPolideportivoTerminalAuxiliar = new ViewPolideportivoTerminalAuxiliar();
@@ -18,23 +21,25 @@ public class ViewPolideportivoTerminal {
     private final ViewPolideportivoTerminalOficinistas paraOficinistas = new ViewPolideportivoTerminalOficinistas();
 
 
+    /**
+     * Método para mostrar el menú principal de la aplicación.
+     */
     public void mostrarMenu() {
-        // Creación de oficinista y mapa de actividades
         Oficinista oficinista = new Oficinista();
-        //Map<Actividades, List<Semana>> semanaActs = new HashMap<>();
-
-        // Definir y asignar un valor a actividad
-        //Actividades actividad = Actividades.FUTBOL;
-
         boolean opcionNoCorrecta;
 
         do {
-            // Manejo del menú inicial
             opcionNoCorrecta = manejarMenuInicial(oficinista);
-            //LauncherTerminal.manejarMenuInicial(sc, oficinista, semanaActs);
         }while (!opcionNoCorrecta);
 
     }
+
+    /**
+     * Método para manejar el menú inicial de la aplicación.
+     *
+     * @param oficinista El oficinista que está utilizando la aplicación.
+     * @return Verdadero si la opción seleccionada es correcta, falso en caso contrario.
+     */
 
     private boolean  manejarMenuInicial(Oficinista oficinista) {
         boolean opcionCorrecta = false;
