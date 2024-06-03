@@ -21,7 +21,7 @@ public class RepositoryOficinista implements RepositoryOficinistaInterfaz {
      *
      * @return instancia de RepositoryOficinista
      */
-    public static synchronized RepositoryOficinista getInstance() {
+    public static RepositoryOficinista getInstance() {
         if (instance == null) {
             instance = new RepositoryOficinista();
         }
@@ -77,13 +77,14 @@ public class RepositoryOficinista implements RepositoryOficinistaInterfaz {
      * @param dni DNI del usuario cuya sanción se quiere ver
      */
     @Override
-    public void verSancionarUsuario(String dni) {
+    public String verSancionarUsuario(String dni) {
         List<Usuario> usuarios = (List<Usuario>) this.fileManager.getInstance().loadFileList(this.fileManager.getInstance().LISTA_USUARIOS);
 
         for (Usuario usuario : usuarios) {
             if (usuario.getDNI().equals(dni)) {
-                System.out.println(usuario.getSancion());
+                return  usuario.getSancion();
             }
         }
+        return "No hay sanciones";
     }
 }

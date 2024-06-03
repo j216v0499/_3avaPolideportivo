@@ -12,11 +12,17 @@ import java.util.Scanner;
 import static com.diogonunes.jcolor.Ansi.colorize;
 import static com.diogonunes.jcolor.Attribute.*;
 
+/**
+ * La clase ViewPolideportivoTerminalAuxiliar da un view para interactuar con el terminal
+ */
+
 public class ViewPolideportivoTerminalAuxiliar {
 
     private final ControllerOficinista controllerOficinista = new ControllerOficinista();
 
-
+    /**
+     * La clase ViewPolideportivoTerminalAuxiliar proporciona una interfaz de terminal para interactuar con los oficinistas.
+     */
 
     public String menuInicial() {
         Scanner sc = new Scanner(System.in);
@@ -29,6 +35,13 @@ public class ViewPolideportivoTerminalAuxiliar {
         return sc.next();
 
     }
+
+    /**
+     * Método para dar de alta a un nuevo oficinista.
+     *
+     * @param sc Scanner para leer la entrada del usuario.
+     * @param oficinista El oficinista que está utilizando la aplicación.
+     */
 
     public void menuAlta(Scanner sc, Oficinista oficinista) {
 
@@ -46,10 +59,17 @@ public class ViewPolideportivoTerminalAuxiliar {
                             FileManager.LISTA_USUARIOS);
             controllerOficinista.darAlta(usuarios1, usuario);
             System.out.print(colorize("\nUsuario dado de Alta\n ", BRIGHT_RED_TEXT()));
-            System.out.print(colorize("Datos del usuario nuevo -->\n", BRIGHT_YELLOW_BACK()));
+            System.out.print(colorize("Datos del usuario nuevo -->\n", RED_TEXT()));
             System.out.println(usuarioToString(usuario));
 
     }
+
+    /**
+     * Método para iniciar sesión como usuario.
+     *
+     * @param sc Scanner para leer la entrada del usuario.
+     * @return Verdadero si el inicio de sesión fue exitoso, falso en caso contrario.
+     */
 
     public boolean inicioUsuarios(Scanner sc) {
 
@@ -104,6 +124,14 @@ public class ViewPolideportivoTerminalAuxiliar {
         }
     }
 
+
+    /**
+     * Método para iniciar sesión como oficinista.
+     *
+     * @param sc Scanner para leer la entrada del usuario.
+     * @return Verdadero si el inicio de sesión fue exitoso, falso en caso contrario.
+     */
+
     public boolean inicioSesionOficina(Scanner sc) {
 
         System.out.println(colorize("\nLista de usuarios registrados (elige que perfil utilizar):", BLUE_TEXT()));
@@ -143,41 +171,13 @@ public class ViewPolideportivoTerminalAuxiliar {
 
         return usus2.get(numUser).getDNI().equals(DNI) && usus2.get(numUser).getPass().equals(pass);
     }
-//
-//    public Actividades eleccionActividad(Actividades actividad, int numAct) {
-//        switch (numAct) {
-//            case 1: {
-//                actividad = Actividades.FUTBOL;
-//            }
-//            break;
-//            case 2: {
-//                actividad = Actividades.BALONCESTO;
-//            }
-//            break;
-//            case 3: {
-//                actividad = Actividades.PADEL;
-//            }
-//            break;
-//            case 4: {
-//                actividad = Actividades.TENIS;
-//            }
-//            break;
-//            case 5: {
-//                actividad = Actividades.FRONTON;
-//            }
-//            break;
-//            case 6: {
-//                actividad = Actividades.YOGA;
-//            }
-//            break;
-//            case 7: {
-//                actividad = Actividades.SPINNING;
-//            }
-//            break;
-//        }
-//        return actividad;
-//    }
 
+    /**
+     * Método para convertir un Usuario a una cadena de texto.
+     *
+     * @param user El usuario a convertir.
+     * @return Una cadena de texto que representa al usuario.
+     */
     public String usuarioToString(Usuario user) {
         return  "\t\tUsuario " + "\n"+
                 "\t\tDNI --> " + user.getDNI() +"\n"+

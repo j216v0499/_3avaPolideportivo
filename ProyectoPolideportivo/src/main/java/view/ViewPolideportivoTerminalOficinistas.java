@@ -141,7 +141,7 @@ public class ViewPolideportivoTerminalOficinistas {
         System.out.println("¿Qué usuario quieres verificar? DNI:");
         sc.nextLine(); // Limpiar el buffer
         String dni = sc.nextLine();
-        controllerOficinista.verSancionarUsuario(dni);
+        System.out.println(controllerOficinista.verSancionarUsuario(dni));
     }
 
 }

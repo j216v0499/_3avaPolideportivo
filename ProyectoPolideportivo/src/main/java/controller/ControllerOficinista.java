@@ -36,8 +36,8 @@ public class ControllerOficinista {
      * @param dni se espera ver el dni del usuario sancionado
      *
      * */
-    public void verSancionarUsuario(String dni){
-        modelOficinista.verSancionarUsuario(dni);
+    public String verSancionarUsuario(String dni){
+       return  modelOficinista.verSancionarUsuario(dni);
     }
 
 }

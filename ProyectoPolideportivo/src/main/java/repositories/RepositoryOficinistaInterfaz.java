@@ -30,5 +30,5 @@ public interface RepositoryOficinistaInterfaz {
      *
      * @param dni El DNI del usuario cuya sanción se quiere ver.
      */
-    void verSancionarUsuario(String dni);
+    String verSancionarUsuario(String dni);
 }

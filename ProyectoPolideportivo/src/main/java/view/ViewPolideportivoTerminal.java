@@ -71,9 +71,9 @@ public class ViewPolideportivoTerminal {
 
         System.out.println(colorize("\n¿Ya tienes un usuario? (s/n) 'n' para darte de alta", BLUE_TEXT()));
         System.out.print(colorize("--> ",BRIGHT_BLUE_TEXT()));
-        String res1=sc.next();
+        String respuesta1=sc.next();
 
-        if (res1.equals("n")) {
+        if (respuesta1.equals("n")) {
             viewPolideportivoTerminalAuxiliar.menuAlta(sc, oficinista);
         }
 
@@ -90,18 +90,18 @@ public class ViewPolideportivoTerminal {
 
         System.out.println(colorize("\nSesión iniciada", BLUE_TEXT()));
 
-        String res2;
+        String respuesta2;
         do {
 
             System.out.println(colorize("\nBienvenido al polideportivo ¿que desea hacer?\n", BLUE_TEXT()));
             System.out.println(colorize("reservar(1)    quitar reserva(2)   mostrar calendario(3)   salir(4)    ver reservas(5)", BLUE_TEXT()));
             System.out.print(colorize("--> ",BRIGHT_BLUE_TEXT()));
-            res2 = sc.next();
+            respuesta2 = sc.next();
             System.out.println(colorize("\nAPLICACION EN DESAROLLO, CONTEACTE POR TELEFONO AL POLIDEPORTIVO, GRACIAS\n", BRIGHT_BLUE_TEXT()));
             System.out.println();
             contacteConPolideportivo();
 
-        }while (!res2.equals("4"));
+        }while (!respuesta2.equals("4"));
     }
 
     public void contacteConPolideportivo(){

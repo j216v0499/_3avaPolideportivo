@@ -42,7 +42,7 @@ public class ModelOficinista {
      * @param dni se espera ver el dni del usuario sancionado
      *
      * */
-    public void verSancionarUsuario(String dni){
-        repositoryOficinista.verSancionarUsuario(dni);
+    public String verSancionarUsuario(String dni){
+        return repositoryOficinista.verSancionarUsuario(dni);
     }
 }
