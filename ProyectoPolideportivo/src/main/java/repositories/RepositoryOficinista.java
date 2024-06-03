@@ -2,15 +2,14 @@ package repositories;
 
 import dao.Usuario;
 import util.FileManager;
+
 import java.util.ArrayList;
 import java.util.List;
-import static com.diogonunes.jcolor.Ansi.colorize;
-import static com.diogonunes.jcolor.Attribute.BRIGHT_RED_TEXT;
 
 /**
  * Implementación del repositorio para la gestión de oficinistas.
  */
-public class RepositoryOficinista implements UsuarioRepository {
+public class RepositoryOficinista implements RepositoryUsuario {
 
     private static RepositoryOficinista instance;
 
@@ -28,6 +27,8 @@ public class RepositoryOficinista implements UsuarioRepository {
         return instance;
     }
 
+    private final FileManager fileManager = FileManager.getInstance();
+
     /**
      * Da de alta un nuevo usuario.
      *
@@ -39,7 +40,7 @@ public class RepositoryOficinista implements UsuarioRepository {
         if (usuarios == null)
             usuarios = new ArrayList<>();
         usuarios.add(usuario);
-        FileManager.getInstance().saveFileList(FileManager.LISTA_USUARIOS, usuarios);
+        this.fileManager.getInstance().saveFileList(FileManager.LISTA_USUARIOS, usuarios);
     }
 
     /**
@@ -49,8 +50,8 @@ public class RepositoryOficinista implements UsuarioRepository {
      * @param sancion Descripción de la sanción
      */
     @Override
-    public void sancionarUsuario(String dni, String sancion) {
-        List<Usuario> listaUsuarios = (List<Usuario>) FileManager.getInstance().loadFileList(FileManager.LISTA_USUARIOS);
+    public boolean sancionarUsuario(String dni, String sancion) {
+        List<Usuario> listaUsuarios = (List<Usuario>) this.fileManager.getInstance().loadFileList(FileManager.LISTA_USUARIOS);
 
         boolean usuarioEncontrado = false;
 
@@ -61,15 +62,13 @@ public class RepositoryOficinista implements UsuarioRepository {
                 break;
             }
         }
-
         if (usuarioEncontrado) {
-            FileManager.getInstance().saveFileList(FileManager.LISTA_USUARIOS, listaUsuarios);
-            System.out.print(colorize("\n\t\tUsuario sancionado \n", BRIGHT_RED_TEXT()));
-        } else {
-            System.out.print(colorize("\nUsuario con DNI " + dni + " no encontrado.\n", BRIGHT_RED_TEXT()));
+            this.fileManager.getInstance().saveFileList(this.fileManager.getInstance().LISTA_USUARIOS, listaUsuarios);
         }
 
-        System.out.print(colorize("\n\t\tEl proceso de sancionar usuario ha terminado correctamente\n", BRIGHT_RED_TEXT()));
+        return  usuarioEncontrado;
+
+
     }
 
     /**
@@ -79,7 +78,7 @@ public class RepositoryOficinista implements UsuarioRepository {
      */
     @Override
     public void verSancionarUsuario(String dni) {
-        List<Usuario> usuarios = (List<Usuario>) FileManager.getInstance().loadFileList(FileManager.LISTA_USUARIOS);
+        List<Usuario> usuarios = (List<Usuario>) this.fileManager.getInstance().loadFileList(this.fileManager.getInstance().LISTA_USUARIOS);
 
         for (Usuario usuario : usuarios) {
             if (usuario.getDNI().equals(dni)) {

@@ -54,7 +54,16 @@ public class ParaOficinistas {
                     String dni = sc.nextLine();
                     System.out.println(colorize("Sancion :",BRIGHT_MAGENTA_TEXT()));
                     String sancion = sc.nextLine();
+                    boolean usuarioEncontrado =
                     controllerOficinista.sancionarUsuario(dni, sancion);
+
+                    if (usuarioEncontrado) {
+                        System.out.print(colorize("\n\t\tUsuario sancionado \n", BRIGHT_RED_TEXT()));
+                    } else {
+                        System.out.print(colorize("\nUsuario con DNI " + dni + " no encontrado.\n", BRIGHT_RED_TEXT()));
+                    }
+
+
                 }
 
                 if (res2.equals("3")) {

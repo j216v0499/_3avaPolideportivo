@@ -9,10 +9,9 @@ import java.util.Map;
  *
  * @param <T> tipo de objeto
  */
-public class FileManager<T> implements FileManagerRepository<T> {
+public class FileManager<T> {
 
     public static final String LISTA_USUARIOS = "listausu";
-    public static final String LISTA_USUARIOS_BAN = "listausuban";
 
     public static final String NUMERO_USUARIO = "numUser";
 
@@ -38,7 +37,7 @@ public class FileManager<T> implements FileManagerRepository<T> {
      * @param fileName nombre del archivo
      * @param object objeto
      */
-    @Override
+
     public void saveFile(String fileName, T object) {
         File file = new File(fileName);
         try (FileOutputStream fos = new FileOutputStream(file);
@@ -56,7 +55,7 @@ public class FileManager<T> implements FileManagerRepository<T> {
      * @param fileName nombre del archivo
      * @return objeto
      */
-    @Override
+
     public T loadFile(String fileName) {
         File file = new File(fileName);
         T object = null;
@@ -78,7 +77,7 @@ public class FileManager<T> implements FileManagerRepository<T> {
      * @param fileName nombre del fichero
      * @param objects lista de los objetos
      */
-    @Override
+
     public void saveFileList(String fileName, List<?> objects) {
         File file = new File(fileName);
         try (FileOutputStream fos = new FileOutputStream(file);
@@ -97,7 +96,7 @@ public class FileManager<T> implements FileManagerRepository<T> {
      * @param fileName nombre fichero
      * @return lista de objetos
      */
-    @Override
+
     public List<T> loadFileList(String fileName) {
         File file = new File(fileName);
         List<T> list = null;
@@ -119,7 +118,7 @@ public class FileManager<T> implements FileManagerRepository<T> {
      * @param fileName nombre archivo
      * @param objects mapa de objetos
      */
-    @Override
+
     public void saveFileMap(String fileName, Map<?, ?> objects) {
         File file = new File(fileName);
         try (FileOutputStream fos = new FileOutputStream(file);
@@ -138,7 +137,7 @@ public class FileManager<T> implements FileManagerRepository<T> {
      * @param fileName nombre archivo
      * @return mapa de objetos
      */
-    @Override
+
     public Map<?, ?> loadFileMap(String fileName) {
         File file = new File(fileName);
         Map<?, ?> map = null;

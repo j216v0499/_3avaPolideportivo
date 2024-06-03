@@ -33,8 +33,8 @@ public class ModelOficinista {
      *
      * */
 
-    public void sancionarUsuario(String dni, String sancion) {
-        repositoryOficinista.sancionarUsuario(dni, sancion);
+    public boolean sancionarUsuario(String dni, String sancion) {
+        return  repositoryOficinista.sancionarUsuario(dni, sancion);
     }
 
     /**

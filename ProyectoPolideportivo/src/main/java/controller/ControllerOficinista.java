@@ -27,8 +27,8 @@ public class ControllerOficinista {
      *
      * */
 
-    public void sancionarUsuario(String dni, String sancion) {
-        modelOficinista.sancionarUsuario(dni,sancion);
+    public boolean sancionarUsuario(String dni, String sancion) {
+        return modelOficinista.sancionarUsuario(dni,sancion);
     }
 
     /**

@@ -3,8 +3,8 @@ package repositories;
 import dao.Usuario;
 import java.util.List;
 
-public interface UsuarioRepository {
+public interface RepositoryUsuario {
     void darAlta(List<Usuario> usuarios, Usuario usuario);
-    void sancionarUsuario(String dni, String sancion);
+    boolean sancionarUsuario(String dni, String sancion);
     void verSancionarUsuario(String dni);
 }
