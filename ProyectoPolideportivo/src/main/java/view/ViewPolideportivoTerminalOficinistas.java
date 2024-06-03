@@ -69,18 +69,11 @@ public class ViewPolideportivoTerminalOficinistas {
     private void mostrarMenu(Scanner sc, Oficinista oficinista) {
         String opcion;
         do {
-            mostrarOpcionesMenu();
+            System.out.println(colorize("Sancionar(1)\tDardeAltaUsuarios(2)\tVerificarSancionar(3)\tSalir(4)", BLUE_TEXT()));
+            System.out.print(colorize("--> ", BRIGHT_BLUE_TEXT()));
             opcion = sc.next();
             procesarOpcion(opcion, sc, oficinista);
         } while (!opcion.equals("4"));
-    }
-
-    /**
-     * Método para mostrar las opciones del menú al usuario.
-     */
-    private void mostrarOpcionesMenu() {
-        System.out.println(colorize("Sancionar(1)\tDardeAltaUsuarios(2)\tVerificarSancionar(3)\tSalir(4)", BLUE_TEXT()));
-        System.out.print(colorize("--> ", BRIGHT_BLUE_TEXT()));
     }
 
     /**
