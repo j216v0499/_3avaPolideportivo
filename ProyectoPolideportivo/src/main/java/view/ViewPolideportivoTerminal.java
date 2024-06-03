@@ -5,8 +5,7 @@ import dao.Oficinista;
 import java.util.*;
 
 import static com.diogonunes.jcolor.Ansi.colorize;
-import static com.diogonunes.jcolor.Attribute.BLUE_TEXT;
-import static com.diogonunes.jcolor.Attribute.BRIGHT_BLUE_TEXT;
+import static com.diogonunes.jcolor.Attribute.*;
 
 
 public class ViewPolideportivoTerminal {
@@ -37,7 +36,7 @@ public class ViewPolideportivoTerminal {
 
     }
 
-    private boolean manejarMenuInicial(Oficinista oficinista) {
+    private boolean  manejarMenuInicial(Oficinista oficinista) {
         boolean opcionCorrecta = false;
         while (!opcionCorrecta) {
             String opcion = viewPolideportivoTerminalAuxiliar.menuInicial();
