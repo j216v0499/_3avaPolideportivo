@@ -1,6 +1,5 @@
 package controller;
 
-import model.Reserva;
 import model.Usuario;
 import util.FileManager;
 import view.ViewPolideportivoTerminalAuxiliar;

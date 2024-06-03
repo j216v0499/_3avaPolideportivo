@@ -23,7 +23,7 @@ public class ViewPolideportivoTerminal {
     public void mostrarMenu() {
         // Creación de oficinista y mapa de actividades
         Oficinista oficinista = new Oficinista();
-        Map<Actividades, List<Semana>> semanaActs = new HashMap<>();
+        //Map<Actividades, List<Semana>> semanaActs = new HashMap<>();
 
         // Definir y asignar un valor a actividad
         //Actividades actividad = Actividades.FUTBOL;
@@ -31,13 +31,13 @@ public class ViewPolideportivoTerminal {
         boolean opcionCorrecta = true;
         do {
             // Manejo del menú inicial
-            opcionCorrecta = manejarMenuInicial(oficinista, semanaActs);
+            opcionCorrecta = manejarMenuInicial(oficinista);
             //LauncherTerminal.manejarMenuInicial(sc, oficinista, semanaActs);
         }while (!opcionCorrecta);
 
     }
 
-    private boolean manejarMenuInicial(Oficinista oficinista, Map<Actividades, List<Semana>> semanaActs) {
+    private boolean manejarMenuInicial(Oficinista oficinista) {
         boolean opcionCorrecta = false;
         while (!opcionCorrecta) {
             String opcion = viewPolideportivoTerminalAuxiliar.menuInicial();
