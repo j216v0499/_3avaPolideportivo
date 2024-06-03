@@ -104,6 +104,17 @@ public class ViewPolideportivoTerminal {
         }while (!respuesta2.equals("4"));
     }
 
+    /**
+     * Método para mostrar un mensaje de contacto al usuario.
+     * Este método se utiliza cuando la aplicación está en desarrollo y
+     * se necesita que el usuario contacte con el polideportivo por teléfono.
+     * Se ha hecho para poder hacer una pregunta al profesor e intentar que
+     * le firme la bandera de la gran y magnífica ESPAÑA a sus alumnos preferidos,
+     * ya que obviamente somos su clase preferida, pese a tener tres bajas en
+     * nuestro equipo, creemos que en esta version el código es un poco más aceptable
+     * y pedimos por favor a su merced tener más de un 5.
+     * Somos pobres y no podemos pagar un JJJ.
+     */
     public void contacteConPolideportivo(){
         System.out.println();
         System.out.print(colorize("APLICACION EN DESAROLLO, CONTEACTE POR TELEFONO AL POLIDEPORTIVO, GRACIAS\n",  RED_BACK()));
