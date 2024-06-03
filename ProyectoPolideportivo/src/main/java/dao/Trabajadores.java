@@ -26,22 +26,12 @@ public class Trabajadores extends Writable {
         this.DNI = DNI;
     }
 
-
-
-
-
-
+    /**
+     * Constructor por defecto para la clase Oficinista.
+     */
 
     public Trabajadores() {
-
     }
-
-
-
-
-
-
-
 
     /**
      * Obtiene el nombre del trabajador.

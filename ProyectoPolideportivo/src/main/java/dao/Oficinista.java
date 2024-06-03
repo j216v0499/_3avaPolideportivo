@@ -9,13 +9,20 @@ package dao;
 public class Oficinista extends Trabajadores{
 
     /**
-     * Constructor por defecto para la clase Oficinista.
+     * Constructor para la clase Oficinista.
+     *
+     * @param nombre El nombre del oficinista.
+     * @param pass La contraseña del oficinista.
+     * @param DNI El DNI del oficinista.
      */
+
     public Oficinista(String nombre, String pass, String DNI) {
             super(nombre, pass, DNI);
     }
 
-
+    /**
+     * Constructor por defecto para la clase Oficinista.
+     */
 
     public Oficinista() {
         super();

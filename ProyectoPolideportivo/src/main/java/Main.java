@@ -5,7 +5,7 @@ public class Main {
         /**
          * Se ha limpiado el main y se ha dejado solo lo imprescindible
          * Se ha arreglado el acceso static de la clase menus
-         *      LauncherTerminal. lanzador();
+         *      LauncherTerminal.lanzador();
          * */
 
         ViewPolideportivoTerminal viewProductTerminal = new ViewPolideportivoTerminal();

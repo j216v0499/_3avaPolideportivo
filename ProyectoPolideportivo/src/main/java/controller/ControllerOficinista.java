@@ -1,6 +1,5 @@
 package controller;
 
-import dao.Oficinista;
 import model.ModelOficinista;
 import dao.Usuario;
 

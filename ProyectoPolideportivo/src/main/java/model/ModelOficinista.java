@@ -13,11 +13,7 @@ import static com.diogonunes.jcolor.Attribute.BRIGHT_RED_TEXT;
 
 public class ModelOficinista {
 
-    //ViewPolideportivoTerminalAuxiliar viewPolideportivoTerminalAuxiliar = new ViewPolideportivoTerminalAuxiliar();
-
-
-    private RepositoryOficinista repositoryOficinista = RepositoryOficinista.getInstance();
-
+     private final RepositoryOficinista repositoryOficinista = RepositoryOficinista.getInstance();
 
     /**
      *  Se espera dar de alta un usuario
@@ -26,7 +22,6 @@ public class ModelOficinista {
      * @param usuarios1 lista de usuarios
      * */
     public void darAlta(List<Usuario> usuarios1, Usuario usuario){
-
         repositoryOficinista.darAlta(usuarios1,usuario);
     }
 
@@ -48,27 +43,6 @@ public class ModelOficinista {
      *
      * */
     public void verSancionarUsuario(String dni){
-
         repositoryOficinista.verSancionarUsuario(dni);
     }
-
-    /**
-     * Se espera poder ver las reservas
-     *
-     * @param oficinista se espera el objeto de tipo oficinista
-     * @param actividad nombre de la actividad
-     * @param numUsuario  se espera el numero del usuario
-     * @param numSemana espera el número de la semana
-     * @param numHora espera la hora
-     * @param numDia espera el día
-     *
-     * */
-//    public void verReservas(Oficinista oficinista, Actividades actividad,int numUsuario, int numSemana, int numHora, int numDia){
-//
-    //     repositoryOficinista.verReservas(.....)
-//    }
-
-
-
-
 }
