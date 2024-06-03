@@ -1,7 +1,5 @@
 package base;
 
-import java.util.Arrays;
-
 public enum Actividades {
 
     FUTBOL(1),

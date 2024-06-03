@@ -1,9 +1,5 @@
 package dao;
 
-//import model.Reserva;
-//import dao.Semana;
-import static com.diogonunes.jcolor.Ansi.colorize;
-
 public class Oficinista extends Trabajadores{
 
     public Oficinista(){

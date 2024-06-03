@@ -6,8 +6,6 @@ import dao.Usuario;
 
 import java.util.List;
 
-import static com.diogonunes.jcolor.Ansi.colorize;
-
 public class ControllerOficinista extends Oficinista {
 
     private ModelOficinista modelOficinista = new ModelOficinista();

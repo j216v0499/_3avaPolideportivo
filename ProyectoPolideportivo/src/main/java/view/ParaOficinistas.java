@@ -2,7 +2,6 @@ package view;
 
 import controller.ControllerOficinista;
 import dao.Oficinista;
-import view.ViewPolideportivoTerminalAuxiliar;
 
 import java.util.Scanner;
 
@@ -13,7 +12,7 @@ public class ParaOficinistas {
 
     private final ViewPolideportivoTerminalAuxiliar viewPolideportivoTerminalAuxiliar = new ViewPolideportivoTerminalAuxiliar();
 
-    private ControllerOficinista controllerOficinista = new ControllerOficinista();
+    private final ControllerOficinista controllerOficinista = new ControllerOficinista();
 
 
     /**
