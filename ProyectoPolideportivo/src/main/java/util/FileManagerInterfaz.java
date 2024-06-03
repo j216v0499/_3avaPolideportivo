@@ -8,7 +8,7 @@ import java.util.Map;
  *
  * @param <T> es el tipo de objeto que se supone que va a utilizar
  */
-public interface FileManagerRepository<T> {
+public interface FileManagerInterfaz<T> {
     void saveFile(String fileName, T object);
     T loadFile(String fileName);
     void saveFileList(String fileName, List<?> objects);

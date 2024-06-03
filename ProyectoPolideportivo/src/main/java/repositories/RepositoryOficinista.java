@@ -9,7 +9,7 @@ import java.util.List;
 /**
  * Implementación del repositorio para la gestión de oficinistas.
  */
-public class RepositoryOficinista implements RepositoryUsuario {
+public class RepositoryOficinista implements RepositoryOficinistaInterfaz {
 
     private static RepositoryOficinista instance;
 
